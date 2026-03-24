@@ -17,7 +17,7 @@ Built with Claude (Anthropic) — no backend required. Runs entirely in the brow
 
 ## How To Use
 
-1. Open the app: **[https://dino-nugg.github.io/jobscraper](https://dino-nugg.github.io/jobscraper)**
+1. Open the app: **[https://dino-nugg.github.io/jobscraper](https://dino-nugg.github.io/AI-Job-Searh-Assistant)**
 2. Describe what you're looking for (role type, firm stage, location, sector)
 3. Upload your resume (PDF or TXT)
 4. Get a free Anthropic API key at **[console.anthropic.com](https://console.anthropic.com)** — just create an account, it takes 2 minutes. Your key is only used in your browser and never stored anywhere.
