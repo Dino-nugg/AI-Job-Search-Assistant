@@ -17,10 +17,10 @@ Built with Claude (Anthropic) — no backend required. Runs entirely in the brow
 
 ## How To Use
 
-1. Open the app: **[https://linh-phan17.github.io/jobscraper](https://linh-phan17.github.io/jobscraper)**
+1. Open the app: **[https://dino-nugg.github.io/jobscraper](https://dino-nugg.github.io/jobscraper)**
 2. Describe what you're looking for (role type, firm stage, location, sector)
 3. Upload your resume (PDF or TXT)
-4. Enter your [Anthropic API key](https://console.anthropic.com) — used only in your browser, never stored
+4. Get a free Anthropic API key at **[console.anthropic.com](https://console.anthropic.com)** — just create an account, it takes 2 minutes. Your key is only used in your browser and never stored anywhere.
 5. Hit **Run Scout** and get your ranked digest
 6. Send it to your email with one click
 
@@ -37,8 +37,8 @@ Built with Claude (Anthropic) — no backend required. Runs entirely in the brow
 
 ## Requirements
 
-- An [Anthropic API key](https://console.anthropic.com) (you bring your own)
-- A Gmail account (for sending the digest)
+- A free **Anthropic API key** — sign up at [console.anthropic.com](https://console.anthropic.com) (no credit card required to start)
+- A **Gmail account** for sending the digest
 
 ---
 
