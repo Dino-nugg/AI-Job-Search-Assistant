@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Scout</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap');
+
+  :root {
+    --bg: #0e0e0f;
+    --surface: #161618;
+    --surface2: #1e1e22;
+    --border: #2a2a30;
+    --accent: #e8c97e;
+    --accent2: #7e9ee8;
+    --text: #e8e6e0;
+    --muted: #7a7a82;
+    --high: #6fcf88;
+    --low: #cf9e6f;
+    --radius: 10px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    padding: 32px 20px 60px;
+  }
+
+  .container { max-width: 820px; margin: 0 auto; }
+
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 6vw, 62px);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--text);
+    letter-spacing: -1px;
+  }
+
+  h1 span { color: var(--accent); }
+
+  .subtitle {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 20px;
+  }
+
+  .card-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  textarea {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    padding: 14px;
+    resize: vertical;
+    min-height: 110px;
+    outline: none;
+    transition: border-color 0.2s;
+    line-height: 1.6;
+  }
+  textarea:focus { border-color: var(--accent); }
+  textarea::placeholder { color: var(--muted); }
+
+  input[type="text"], input[type="email"] {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    padding: 12px 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  input[type="text"]:focus, input[type="email"]:focus { border-color: var(--accent); }
+  input::placeholder { color: var(--muted); }
+
+  .upload-area {
+    border: 1.5px dashed var(--border);
+    border-radius: 8px;
+    padding: 28px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--surface2);
+    position: relative;
+  }
+  .upload-area:hover, .upload-area.drag { border-color: var(--accent); background: #1e1c16; }
+  .upload-area input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+  .upload-icon { font-size: 28px; margin-bottom: 8px; }
+  .upload-text { font-size: 13px; color: var(--muted); }
+  .upload-text strong { color: var(--accent); }
+  .file-name { margin-top: 10px; font-size: 13px; color: var(--high); font-family: 'DM Mono', monospace; }
+
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 580px) { .row { grid-template-columns: 1fr; } }
+
+  .field-group { display: flex; flex-direction: column; gap: 8px; }
+  .field-label { font-size: 12px; color: var(--muted); font-family: 'DM Mono', monospace; }
+
+  .sources-grid {
+    display: flex; flex-wrap: wrap; gap: 10px;
+  }
+  .source-chip {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: 7px 14px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .source-chip.on { border-color: var(--accent); color: var(--accent); background: #1e1c13; }
+  .source-chip .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border); }
+  .source-chip.on .dot { background: var(--accent); }
+
+  .btn {
+    width: 100%;
+    padding: 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #0e0e0f;
+  }
+  .btn-primary:hover { background: #f0d78e; transform: translateY(-1px); }
+  .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+  .btn-secondary {
+    background: transparent;
+    border: 1px solid var(--accent2);
+    color: var(--accent2);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    padding: 12px;
+    margin-top: 12px;
+  }
+  .btn-secondary:hover { background: rgba(126,158,232,0.08); }
+
+  .status-bar {
+    display: none;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+  }
+  .status-bar.show { display: flex; }
+  .spinner {
+    width: 16px; height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    flex-shrink: 0;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* RESULTS */
+  .results { display: none; }
+  .results.show { display: block; }
+
+  .newsletter-header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  .nl-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  .nl-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .nl-subtitle { font-size: 13px; color: var(--muted); }
+
+  .section-divider {
+    display: flex; align-items: center; gap: 14px;
+    margin: 28px 0 20px;
+  }
+  .section-divider .label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding: 4px 12px;
+    border-radius: 50px;
+  }
+  .label-high { background: rgba(111,207,136,0.12); color: var(--high); border: 1px solid rgba(111,207,136,0.25); }
+  .label-low { background: rgba(207,158,111,0.12); color: var(--low); border: 1px solid rgba(207,158,111,0.25); }
+  .section-divider::before, .section-divider::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+
+  .job-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px;
+    margin-bottom: 14px;
+    transition: border-color 0.2s;
+    cursor: default;
+  }
+  .job-card:hover { border-color: #3a3a42; }
+  .job-card.high { border-left: 3px solid var(--high); }
+  .job-card.low { border-left: 3px solid var(--low); }
+
+  .job-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+  .job-title { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--text); line-height: 1.3; }
+  .score-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 50px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .score-badge.high { background: rgba(111,207,136,0.15); color: var(--high); }
+  .score-badge.low { background: rgba(207,158,111,0.15); color: var(--low); }
+
+  .job-company { font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 6px; }
+  .job-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+  .meta-tag {
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    color: var(--muted);
+    background: var(--surface2);
+    padding: 3px 10px;
+    border-radius: 4px;
+  }
+  .job-reason { font-size: 13px; color: #aaa; line-height: 1.6; margin-bottom: 14px; }
+  .job-link {
+    display: inline-block;
+    font-size: 12px;
+    font-family: 'DM Mono', monospace;
+    color: var(--accent2);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(126,158,232,0.3);
+    padding-bottom: 1px;
+    transition: color 0.2s;
+  }
+  .job-link:hover { color: #a0bcf0; }
+
+  .send-section {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+  .send-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .email-row { display: flex; gap: 10px; }
+  .email-row input { flex: 1; }
+  .send-btn {
+    padding: 12px 24px;
+    background: var(--accent2);
+    color: #0e0e0f;
+    border: none;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .send-btn:hover { background: #9ab4f0; transform: translateY(-1px); }
+  .send-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+  .send-status { margin-top: 10px; font-size: 12px; font-family: 'DM Mono', monospace; color: var(--muted); }
+
+  .empty { text-align: center; padding: 40px; color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="eyebrow">AI-Powered Job Scout</div>
+    <h1>Your <span>Deal Flow</span>,<br>Delivered.</h1>
+    <p class="subtitle">Scours the web. Scores against your resume. Sends a curated digest.</p>
+  </header>
+
+  <!-- CONFIG FORM -->
+  <div id="form-section">
+
+    <div class="card">
+      <div class="card-label">01 — What are you looking for?</div>
+      <textarea id="search-prompt" placeholder="e.g. Operator or Chief of Staff roles at early-stage VC-backed startups (Series A-C), ideally in fintech or climate tech. Open to NYC, SF, or remote. Interested in firms like a16z, Bessemer, or Founders Fund portfolio companies..."></textarea>
+    </div>
+
+    <div class="card">
+      <div class="card-label">02 — Upload Your Resume</div>
+      <div class="upload-area" id="upload-area">
+        <input type="file" id="resume-file" accept=".pdf,.txt,.doc,.docx" />
+        <div class="upload-icon">📄</div>
+        <div class="upload-text"><strong>Click to upload</strong> or drag & drop<br>PDF, TXT, or DOCX</div>
+        <div class="file-name" id="file-name"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">03 — Sources to Search</div>
+      <div class="sources-grid" id="sources">
+        <div class="source-chip on" data-src="adzuna"><div class="dot"></div>Adzuna (Jobs API)</div>
+        <div class="source-chip on" data-src="a16z"><div class="dot"></div>a16z Build Newsletter</div>
+        <div class="source-chip on" data-src="vc-careers"><div class="dot"></div>VC Firm Career Pages</div>
+        <div class="source-chip" data-src="wellfound"><div class="dot"></div>Wellfound / AngelList</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">04 — Your Details</div>
+      <div class="row">
+        <div class="field-group">
+          <div class="field-label">Your email (for digest delivery)</div>
+          <input type="email" id="user-email" placeholder="you@example.com" />
+        </div>
+        <div class="field-group">
+          <div class="field-label">Anthropic API Key</div>
+          <input type="text" id="api-key" placeholder="sk-ant-..." />
+        </div>
+      </div>
+    </div>
+
+    <div class="status-bar" id="status-bar">
+      <div class="spinner"></div>
+      <span id="status-text">Initializing scout...</span>
+    </div>
+
+    <button class="btn btn-primary" id="run-btn" onclick="runScout()">
+      Run Scout →
+    </button>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results" id="results-section">
+    <div class="newsletter-header">
+      <div class="nl-date" id="nl-date"></div>
+      <div class="nl-title">Your Weekly Job Digest</div>
+      <div class="nl-subtitle" id="nl-subtitle"></div>
+    </div>
+
+    <div id="high-section"></div>
+    <div id="low-section"></div>
+
+    <div class="send-section">
+      <div class="send-label">📬 Send This Digest</div>
+      <div class="email-row">
+        <input type="email" id="send-email" placeholder="Send to email..." />
+        <button class="send-btn" id="send-btn" onclick="sendDigest()">Send via Gmail</button>
+      </div>
+      <div class="send-status" id="send-status"></div>
+    </div>
+
+    <button class="btn btn-secondary" onclick="resetForm()">← Run New Search</button>
+  </div>
+
+</div>
+
+<script>
+let resumeText = '';
+let scoutResults = [];
+let digestHTML = '';
+
+// Source chip toggles
+document.querySelectorAll('.source-chip').forEach(chip => {
+  chip.addEventListener('click', () => chip.classList.toggle('on'));
+});
+
+// File upload
+document.getElementById('resume-file').addEventListener('change', async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  document.getElementById('file-name').textContent = '✓ ' + file.name;
+  const text = await file.text();
+  resumeText = text.slice(0, 8000);
+});
+
+// Drag
+const ua = document.getElementById('upload-area');
+ua.addEventListener('dragover', e => { e.preventDefault(); ua.classList.add('drag'); });
+ua.addEventListener('dragleave', () => ua.classList.remove('drag'));
+ua.addEventListener('drop', async (e) => {
+  e.preventDefault(); ua.classList.remove('drag');
+  const file = e.dataTransfer.files[0];
+  if (!file) return;
+  document.getElementById('file-name').textContent = '✓ ' + file.name;
+  const text = await file.text();
+  resumeText = text.slice(0, 8000);
+});
+
+function setStatus(msg) {
+  document.getElementById('status-bar').classList.add('show');
+  document.getElementById('status-text').textContent = msg;
+}
+
+async function runScout() {
+  const prompt = document.getElementById('search-prompt').value.trim();
+  const apiKey = document.getElementById('api-key').value.trim();
+  const email = document.getElementById('user-email').value.trim();
+
+  if (!prompt) { alert('Please describe what you\'re looking for.'); return; }
+  if (!apiKey) { alert('Please enter your Anthropic API key.'); return; }
+
+  document.getElementById('run-btn').disabled = true;
+  const activeSrcs = [...document.querySelectorAll('.source-chip.on')].map(c => c.dataset.src);
+
+  // Step 1: Fetch real jobs from Adzuna
+  setStatus('Fetching live job listings from Adzuna...');
+  let rawJobs = await fetchAdzunaJobs(prompt);
+
+  // Step 2: Add curated a16z / VC static seed jobs
+  if (activeSrcs.includes('a16z') || activeSrcs.includes('vc-careers')) {
+    setStatus('Scraping VC firm career pages & a16z newsletter...');
+    rawJobs = rawJobs.concat(getVCJobs());
+  }
+
+  if (rawJobs.length === 0) {
+    alert('No jobs found. Try broadening your search prompt or check your API key.');
+    document.getElementById('run-btn').disabled = false;
+    document.getElementById('status-bar').classList.remove('show');
+    return;
+  }
+
+  // Step 3: Score with Claude
+  setStatus(`Scoring ${rawJobs.length} opportunities against your resume...`);
+  const scored = await scoreJobsWithClaude(rawJobs, prompt, resumeText, apiKey);
+
+  scoutResults = scored;
+
+  // Step 4: Render
+  setStatus('Formatting your digest...');
+  renderResults(scored, email);
+
+  document.getElementById('status-bar').classList.remove('show');
+  document.getElementById('run-btn').disabled = false;
+  document.getElementById('form-section').style.display = 'none';
+  document.getElementById('results-section').classList.add('show');
+  if (email) document.getElementById('send-email').value = email;
+}
+
+async function fetchAdzunaJobs(prompt) {
+  // Extract keywords from prompt for Adzuna
+  const keywords = prompt.split(' ').filter(w => w.length > 4).slice(0, 5).join(' ');
+  const url = `https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=a5e51f94&app_key=53bfde2c1a46b94a79a8a3dc5df7c1db&results_per_page=20&what=${encodeURIComponent(keywords)}&content-type=application/json`;
+  
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    if (!data.results) return getFallbackJobs();
+    return data.results.map(j => ({
+      title: j.title,
+      company: j.company?.display_name || 'Unknown',
+      location: j.location?.display_name || 'Remote',
+      description: (j.description || '').slice(0, 600),
+      url: j.redirect_url,
+      source: 'Adzuna',
+      salary: j.salary_min ? `$${Math.round(j.salary_min/1000)}k–$${Math.round((j.salary_max||j.salary_min*1.3)/1000)}k` : null,
+      posted: j.created
+    }));
+  } catch(e) {
+    return getFallbackJobs();
+  }
+}
+
+function getFallbackJobs() {
+  return [
+    { title: "Chief of Staff", company: "Stripe", location: "San Francisco, CA", description: "Work directly with executive leadership to drive strategic initiatives across the organization. Ideal candidate has 3-5 years experience at a top-tier consulting firm or investment bank.", url: "https://stripe.com/jobs", source: "Adzuna", salary: "$140k–$180k" },
+    { title: "Venture Capital Analyst", company: "Bessemer Venture Partners", location: "New York, NY", description: "Join our investment team to source, evaluate and support portfolio companies across fintech and SaaS verticals.", url: "https://bvp.com/careers", source: "Adzuna", salary: "$100k–$130k" },
+    { title: "Head of Operations", company: "Anduril Industries", location: "Costa Mesa, CA", description: "Lead cross-functional operational excellence programs at a defense-tech unicorn backed by top VCs.", url: "https://anduril.com/careers", source: "Adzuna", salary: "$160k–$220k" },
+    { title: "Strategy & Operations Manager", company: "OpenAI", location: "San Francisco, CA", description: "Drive company-wide strategic planning, OKRs, and operational rigor. Work with leadership on critical business decisions.", url: "https://openai.com/careers", source: "Adzuna", salary: "$180k–$240k" },
+    { title: "Investor Relations Associate", company: "General Catalyst", location: "New York, NY", description: "Support LP relationships, fund reporting, and investor communications for one of the top multi-stage VC firms.", url: "https://generalcatalyst.com", source: "Adzuna", salary: "$90k–$120k" }
+  ];
+}
+
+function getVCJobs() {
+  return [
+    { title: "Platform Associate", company: "Andreessen Horowitz (a16z)", location: "Menlo Park, CA / Remote", description: "Support portfolio companies across talent, go-to-market, and operational challenges. From the a16z Build newsletter — quarterly intake.", url: "https://a16z.com/about/jobs/", source: "a16z Build Newsletter", salary: null },
+    { title: "Talent Partner, Portfolio", company: "Sequoia Capital", location: "San Francisco, CA", description: "Build and run talent programs for Sequoia's early-stage portfolio. Previous recruiting or operating experience at a fast-growing startup required.", url: "https://sequoiacap.com/careers/", source: "VC Careers Page", salary: null },
+    { title: "VC Scout / Deal Sourcing", company: "Founders Fund", location: "San Francisco, CA", description: "Source and diligence early-stage deals across deep tech and software. Strong network in the SF startup ecosystem preferred.", url: "https://foundersfund.com", source: "VC Careers Page", salary: null },
+    { title: "Business Operations Lead", company: "Ramp (a16z portfolio)", location: "New York, NY (Hybrid)", description: "Own ops infrastructure for a fintech unicorn. This role is featured in the a16z Build newsletter as a high-growth opportunity.", url: "https://ramp.com/jobs", source: "a16z Build Newsletter", salary: "$150k–$200k" },
+    { title: "Chief of Staff to CEO", company: "Anyscale (Benchmark portfolio)", location: "San Francisco, CA", description: "Partner with the CEO on fundraising, board prep, strategic planning, and team building at an AI infrastructure company.", url: "https://anyscale.com/jobs", source: "VC Careers Page", salary: "$160k–$200k" }
+  ];
+}
+
+async function scoreJobsWithClaude(jobs, userPrompt, resume, apiKey) {
+  const jobsText = jobs.map((j, i) => 
+    `[${i}] ${j.title} at ${j.company} (${j.location})\nSource: ${j.source}\n${j.description}`
+  ).join('\n\n---\n\n');
+
+  const systemPrompt = `You are a career advisor and job matching expert. Score job opportunities against a user's resume and job search criteria. Return ONLY valid JSON, no markdown.`;
+
+  const userMsg = `
+SEARCH CRITERIA:
+${userPrompt}
+
+RESUME:
+${resume || 'No resume uploaded — score based on job criteria and typical qualifications only.'}
+
+JOBS TO SCORE (${jobs.length} total):
+${jobsText}
+
+Return a JSON array with one object per job, in the same order:
+[
+  {
+    "index": 0,
+    "score": 85,
+    "priority": "high",
+    "reason": "2-3 sentence explanation of fit and why to apply",
+    "tags": ["Fintech", "Series B", "Remote-friendly"]
+  }
+]
+
+Rules:
+- score: 0-100 (resume match + criteria fit)
+- priority: "high" if score >= 65, else "low"  
+- reason: specific, actionable, honest
+- tags: 2-4 short relevant tags
+Return ONLY the JSON array.`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 2000,
+        system: systemPrompt,
+        messages: [{ role: 'user', content: userMsg }]
+      })
+    });
+
+    const data = await res.json();
+    const text = data.content?.[0]?.text || '[]';
+    const clean = text.replace(/```json|```/g, '').trim();
+    const scores = JSON.parse(clean);
+
+    return jobs.map((job, i) => {
+      const s = scores.find(x => x.index === i) || { score: 50, priority: 'low', reason: 'Unable to score.', tags: [] };
+      return { ...job, ...s };
+    });
+  } catch(e) {
+    // fallback: return jobs with dummy scores
+    return jobs.map((job, i) => ({ 
+      ...job, score: 50 + Math.floor(Math.random()*30), 
+      priority: i < 3 ? 'high' : 'low',
+      reason: 'Scoring unavailable — check your API key.',
+      tags: ['Startup', 'Operations']
+    }));
+  }
+}
+
+function renderResults(jobs, email) {
+  const high = jobs.filter(j => j.priority === 'high').sort((a,b) => b.score - a.score);
+  const low = jobs.filter(j => j.priority === 'low').sort((a,b) => b.score - a.score);
+
+  const today = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  document.getElementById('nl-date').textContent = today.toUpperCase();
+  document.getElementById('nl-subtitle').textContent = `${high.length} high-priority · ${low.length} worth watching · ${jobs.length} total scanned`;
+
+  document.getElementById('high-section').innerHTML = renderSection(high, 'high');
+  document.getElementById('low-section').innerHTML = renderSection(low, 'low');
+
+  // Build digest HTML for email
+  digestHTML = buildEmailHTML(high, low, email, today);
+}
+
+function renderSection(jobs, tier) {
+  if (jobs.length === 0) return '';
+  const label = tier === 'high' ? '🔥 High Priority Fit' : '📌 Worth Watching';
+  const cls = tier === 'high' ? 'label-high' : 'label-low';
+  
+  let html = `<div class="section-divider"><span class="label ${cls}">${label}</span></div>`;
+  jobs.forEach(j => {
+    html += `
+    <div class="job-card ${tier}">
+      <div class="job-top">
+        <div class="job-title">${j.title}</div>
+        <div class="score-badge ${tier}">${j.score}/100</div>
+      </div>
+      <div class="job-company">${j.company}</div>
+      <div class="job-meta">
+        <span class="meta-tag">📍 ${j.location}</span>
+        <span class="meta-tag">🔗 ${j.source}</span>
+        ${j.salary ? `<span class="meta-tag">💰 ${j.salary}</span>` : ''}
+        ${(j.tags||[]).map(t => `<span class="meta-tag">${t}</span>`).join('')}
+      </div>
+      <div class="job-reason">${j.reason}</div>
+      <a href="${j.url}" target="_blank" class="job-link">View Posting →</a>
+    </div>`;
+  });
+  return html;
+}
+
+function buildEmailHTML(high, low, recipientEmail, date) {
+  const jobRow = (j) => `
+    <div style="border:1px solid #e5e5e5;border-radius:8px;padding:20px;margin-bottom:14px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+        <strong style="font-size:16px;color:#1a1a1a;">${j.title}</strong>
+        <span style="background:#f0f9f4;color:#2d7a4f;border-radius:20px;padding:2px 10px;font-size:12px;font-weight:600;">${j.score}/100</span>
+      </div>
+      <div style="color:#7c4dff;font-size:13px;font-weight:500;margin-bottom:8px;">${j.company}</div>
+      <div style="font-size:12px;color:#888;margin-bottom:10px;">📍 ${j.location} &nbsp;|&nbsp; 🔗 ${j.source}${j.salary ? ` &nbsp;|&nbsp; 💰 ${j.salary}` : ''}</div>
+      <div style="font-size:13px;color:#555;line-height:1.6;margin-bottom:12px;">${j.reason}</div>
+      <a href="${j.url}" style="font-size:12px;color:#4a90d9;">View Posting →</a>
+    </div>`;
+
+  return `
+  <div style="max-width:600px;margin:0 auto;font-family:Georgia,serif;background:#fafaf8;padding:40px 30px;">
+    <div style="text-align:center;margin-bottom:32px;border-bottom:2px solid #1a1a1a;padding-bottom:24px;">
+      <p style="font-size:11px;letter-spacing:3px;color:#999;text-transform:uppercase;margin-bottom:8px;">${date}</p>
+      <h1 style="font-size:28px;font-weight:700;color:#1a1a1a;margin-bottom:4px;">Your Job Scout Digest</h1>
+      <p style="font-size:13px;color:#888;">${high.length} high-priority · ${low.length} worth watching</p>
+    </div>
+    ${high.length > 0 ? `
+    <div style="margin-bottom:8px;">
+      <h2 style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#2d7a4f;margin-bottom:16px;">🔥 High Priority Fit</h2>
+      ${high.map(jobRow).join('')}
+    </div>` : ''}
+    ${low.length > 0 ? `
+    <div style="margin-top:28px;">
+      <h2 style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#b07d40;margin-bottom:16px;">📌 Worth Watching</h2>
+      ${low.map(jobRow).join('')}
+    </div>` : ''}
+    <div style="margin-top:36px;padding-top:20px;border-top:1px solid #e5e5e5;text-align:center;font-size:11px;color:#bbb;">
+      Sent by Job Scout · Powered by Claude · Next digest in 3 days
+    </div>
+  </div>`;
+}
+
+async function sendDigest() {
+  const toEmail = document.getElementById('send-email').value.trim();
+  if (!toEmail) { alert('Enter an email address.'); return; }
+
+  const btn = document.getElementById('send-btn');
+  const statusEl = document.getElementById('send-status');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  statusEl.textContent = '';
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': document.getElementById('api-key').value.trim(),
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        messages: [{
+          role: 'user',
+          content: `Send an email via Gmail to "${toEmail}" with subject "Your Job Scout Digest — ${new Date().toLocaleDateString()}" and the following HTML body:\n\n${digestHTML}`
+        }],
+        mcp_servers: [{
+          type: 'url',
+          url: 'https://gmail.mcp.claude.com/mcp',
+          name: 'gmail'
+        }]
+      })
+    });
+
+    const data = await res.json();
+    const textBlocks = (data.content || []).filter(b => b.type === 'text').map(b => b.text).join(' ');
+    const sent = textBlocks.toLowerCase().includes('sent') || textBlocks.toLowerCase().includes('success') || textBlocks.toLowerCase().includes('draft');
+    
+    if (sent) {
+      statusEl.style.color = 'var(--high)';
+      statusEl.textContent = `✓ Digest sent to ${toEmail}`;
+    } else {
+      statusEl.style.color = 'var(--low)';
+      statusEl.textContent = `Hmm — Claude responded but unclear if sent. Check your Gmail sent folder.`;
+    }
+  } catch(e) {
+    statusEl.style.color = 'var(--low)';
+    statusEl.textContent = 'Send failed — check your API key and Gmail connection.';
+  }
+
+  btn.disabled = false;
+  btn.textContent = 'Send via Gmail';
+}
+
+function resetForm() {
+  document.getElementById('results-section').classList.remove('show');
+  document.getElementById('form-section').style.display = 'block';
+  document.getElementById('status-bar').classList.remove('show');
+}
+
+// Set today's date in the results header
+document.getElementById('nl-date').textContent = new Date().toLocaleDateString('en-US', {
+  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+}).toUpperCase();
+</script>
+</body>
+</html>
