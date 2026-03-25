@@ -18,7 +18,7 @@
   .eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:12px;}
   h1{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,58px);font-weight:900;line-height:1.05;color:var(--text);letter-spacing:-1px;}
   h1 span{color:var(--accent);}
-  .subtitle{margin-top:12px;color:var(--muted);font-size:14px;font-weight:300;}
+  .subtitle{margin-top:12px;color:var(--muted);font-size:14px;}
   .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:18px;}
   .card-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
   textarea{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:14px;resize:vertical;min-height:100px;outline:none;transition:border-color .2s;line-height:1.6;}
@@ -30,7 +30,6 @@
   .upload-area{border:1.5px dashed var(--border);border-radius:8px;padding:24px;text-align:center;cursor:pointer;transition:all .2s;background:var(--surface2);position:relative;}
   .upload-area:hover,.upload-area.drag{border-color:var(--accent);background:#1e1c16;}
   .upload-area input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
-  .upload-icon{font-size:26px;margin-bottom:8px;}
   .upload-text{font-size:13px;color:var(--muted);}
   .upload-text strong{color:var(--accent);}
   .file-name{margin-top:8px;font-size:12px;color:var(--high);font-family:'DM Mono',monospace;}
@@ -38,71 +37,71 @@
   @media(max-width:580px){.row{grid-template-columns:1fr;}}
   .field-group{display:flex;flex-direction:column;gap:8px;}
   .field-label{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;}
-  .source-category{margin-bottom:16px;}
-  .source-category-label{font-size:10px;font-family:'DM Mono',monospace;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;}
-  .chips{display:flex;flex-wrap:wrap;gap:8px;}
-  .source-chip{display:flex;align-items:center;gap:7px;background:var(--surface2);border:1px solid var(--border);border-radius:50px;padding:6px 12px;font-size:11px;cursor:pointer;transition:all .2s;user-select:none;}
-  .source-chip.on{border-color:var(--accent);color:var(--accent);background:#1e1c13;}
-  .source-chip .dot{width:6px;height:6px;border-radius:50%;background:var(--border);flex-shrink:0;}
-  .source-chip.on .dot{background:var(--accent);}
-  .source-chip .badge{font-size:9px;font-family:'DM Mono',monospace;background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:1px 4px;color:var(--muted);margin-left:1px;}
-  .source-chip.on .badge{border-color:var(--accent);color:var(--accent);}
-  .source-note{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;margin-top:10px;line-height:1.6;padding:10px 12px;background:var(--surface2);border-radius:6px;border-left:2px solid var(--border);}
-  .btn{width:100%;padding:16px;font-family:'Playfair Display',serif;font-size:18px;font-weight:700;border:none;border-radius:var(--radius);cursor:pointer;transition:all .2s;letter-spacing:.5px;}
+  .source-section{margin-bottom:18px;}
+  .source-section-title{font-size:10px;font-family:'DM Mono',monospace;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border);}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:4px;}
+  .chip{display:flex;align-items:center;gap:6px;background:var(--surface2);border:1px solid var(--border);border-radius:50px;padding:5px 12px;font-size:11px;cursor:pointer;transition:all .2s;user-select:none;white-space:nowrap;}
+  .chip.on{border-color:var(--accent);color:var(--accent);background:#1e1c13;}
+  .chip .dot{width:5px;height:5px;border-radius:50%;background:var(--border);flex-shrink:0;}
+  .chip.on .dot{background:var(--accent);}
+  .chip .ct{font-size:9px;font-family:'DM Mono',monospace;background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:1px 4px;color:var(--muted);}
+  .chip.on .ct{border-color:rgba(232,201,126,.4);color:var(--accent);}
+  .source-note{font-size:10px;color:var(--muted);font-family:'DM Mono',monospace;margin-top:8px;padding:8px 10px;background:var(--surface2);border-radius:5px;border-left:2px solid var(--border);line-height:1.6;}
+  .btn{width:100%;padding:16px;font-family:'Playfair Display',serif;font-size:18px;font-weight:700;border:none;border-radius:var(--radius);cursor:pointer;transition:all .2s;}
   .btn-primary{background:var(--accent);color:#0e0e0f;}
   .btn-primary:hover{background:#f0d78e;transform:translateY(-1px);}
   .btn-primary:disabled{opacity:.4;cursor:not-allowed;transform:none;}
   .btn-secondary{background:transparent;border:1px solid var(--accent2);color:var(--accent2);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px;margin-top:12px;}
   .btn-secondary:hover{background:rgba(126,158,232,.08);}
-  .progress-wrap{display:none;margin-bottom:16px;}
-  .progress-wrap.show{display:block;}
-  .progress-grid{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;}
-  .src-pill{font-family:'DM Mono',monospace;font-size:10px;padding:3px 9px;border-radius:50px;border:1px solid var(--border);color:var(--muted);display:flex;align-items:center;gap:5px;transition:all .3s;}
-  .src-pill.loading{border-color:var(--accent);color:var(--accent);}
-  .src-pill.done{border-color:var(--high);color:var(--high);}
-  .src-pill.error{border-color:#444;color:#555;}
-  .src-pill .pd{width:5px;height:5px;border-radius:50%;background:currentColor;}
-  .status-bar{display:none;align-items:center;gap:12px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:12px;color:var(--muted);font-family:'DM Mono',monospace;}
-  .status-bar.show{display:flex;}
-  .spinner{width:14px;height:14px;border:2px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;flex-shrink:0;}
-  @keyframes spin{to{transform:rotate(360deg);}}
+  .prog-wrap{display:none;margin-bottom:14px;}
+  .prog-wrap.show{display:block;}
+  .prog-grid{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px;}
+  .spill{font-family:'DM Mono',monospace;font-size:9px;padding:3px 8px;border-radius:50px;border:1px solid var(--border);color:var(--muted);display:flex;align-items:center;gap:4px;transition:all .25s;}
+  .spill.go{border-color:var(--accent);color:var(--accent);}
+  .spill.ok{border-color:var(--high);color:var(--high);}
+  .spill.no{border-color:#3a3a3a;color:#444;}
+  .spill .sd{width:4px;height:4px;border-radius:50%;background:currentColor;}
+  .sbar{display:none;align-items:center;gap:10px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:11px 14px;margin-bottom:14px;font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;}
+  .sbar.show{display:flex;}
+  .spin{width:13px;height:13px;border:2px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:sp .8s linear infinite;flex-shrink:0;}
+  @keyframes sp{to{transform:rotate(360deg);}}
   .results{display:none;}
   .results.show{display:block;}
-  .newsletter-header{border-bottom:1px solid var(--border);padding-bottom:24px;margin-bottom:28px;text-align:center;}
-  .nl-date{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-bottom:8px;}
-  .nl-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--text);margin-bottom:6px;}
-  .nl-subtitle{font-size:13px;color:var(--muted);}
-  .source-breakdown{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px;padding:14px;background:var(--surface);border:1px solid var(--border);border-radius:8px;}
-  .src-count{font-family:'DM Mono',monospace;font-size:10px;padding:3px 9px;border-radius:4px;background:var(--surface2);color:var(--muted);}
-  .src-count strong{color:var(--text);}
-  .section-divider{display:flex;align-items:center;gap:14px;margin:24px 0 16px;}
-  .section-divider .label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;padding:4px 12px;border-radius:50px;}
-  .label-high{background:rgba(111,207,136,.12);color:var(--high);border:1px solid rgba(111,207,136,.25);}
-  .label-low{background:rgba(207,158,111,.12);color:var(--low);border:1px solid rgba(207,158,111,.25);}
-  .section-divider::before,.section-divider::after{content:'';flex:1;height:1px;background:var(--border);}
-  .job-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:12px;transition:border-color .2s;}
-  .job-card:hover{border-color:#3a3a42;}
-  .job-card.high{border-left:3px solid var(--high);}
-  .job-card.low{border-left:3px solid var(--low);}
-  .job-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:6px;}
-  .job-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text);line-height:1.3;}
-  .score-badge{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;padding:3px 9px;border-radius:50px;white-space:nowrap;flex-shrink:0;}
-  .score-badge.high{background:rgba(111,207,136,.15);color:var(--high);}
-  .score-badge.low{background:rgba(207,158,111,.15);color:var(--low);}
-  .job-company{font-size:12px;color:var(--accent);font-weight:500;margin-bottom:6px;}
-  .job-meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:10px;}
-  .meta-tag{font-size:10px;font-family:'DM Mono',monospace;color:var(--muted);background:var(--surface2);padding:2px 8px;border-radius:4px;}
-  .job-reason{font-size:13px;color:#aaa;line-height:1.6;margin-bottom:12px;}
-  .job-link{display:inline-block;font-size:11px;font-family:'DM Mono',monospace;color:var(--accent2);text-decoration:none;border-bottom:1px solid rgba(126,158,232,.3);padding-bottom:1px;}
-  .job-link:hover{color:#a0bcf0;}
-  .send-section{margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
-  .send-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
-  .email-row{display:flex;gap:10px;}
-  .email-row input{flex:1;}
-  .send-btn{padding:12px 20px;background:var(--accent2);color:#0e0e0f;border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-weight:500;font-size:13px;cursor:pointer;white-space:nowrap;transition:all .2s;}
-  .send-btn:hover{background:#9ab4f0;transform:translateY(-1px);}
-  .send-btn:disabled{opacity:.4;cursor:not-allowed;transform:none;}
-  .send-status{margin-top:8px;font-size:11px;font-family:'DM Mono',monospace;color:var(--muted);}
+  .nl-head{border-bottom:1px solid var(--border);padding-bottom:22px;margin-bottom:24px;text-align:center;}
+  .nl-date{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-bottom:6px;}
+  .nl-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--text);margin-bottom:5px;}
+  .nl-sub{font-size:12px;color:var(--muted);}
+  .src-bk{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:8px;}
+  .sc{font-family:'DM Mono',monospace;font-size:10px;padding:2px 8px;border-radius:3px;background:var(--surface2);color:var(--muted);}
+  .sc strong{color:var(--text);}
+  .sdiv{display:flex;align-items:center;gap:12px;margin:22px 0 14px;}
+  .sdiv .lbl{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;padding:3px 10px;border-radius:50px;}
+  .lbl-h{background:rgba(111,207,136,.12);color:var(--high);border:1px solid rgba(111,207,136,.25);}
+  .lbl-l{background:rgba(207,158,111,.12);color:var(--low);border:1px solid rgba(207,158,111,.25);}
+  .sdiv::before,.sdiv::after{content:'';flex:1;height:1px;background:var(--border);}
+  .jc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:10px;transition:border-color .2s;}
+  .jc:hover{border-color:#3a3a42;}
+  .jc.hi{border-left:3px solid var(--high);}
+  .jc.lo{border-left:3px solid var(--low);}
+  .jtop{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:5px;}
+  .jtitle{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--text);line-height:1.3;}
+  .sbadge{font-family:'DM Mono',monospace;font-size:10px;padding:2px 8px;border-radius:50px;white-space:nowrap;flex-shrink:0;}
+  .sbadge.hi{background:rgba(111,207,136,.15);color:var(--high);}
+  .sbadge.lo{background:rgba(207,158,111,.15);color:var(--low);}
+  .jco{font-size:12px;color:var(--accent);font-weight:500;margin-bottom:5px;}
+  .jmeta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;}
+  .mtag{font-size:10px;font-family:'DM Mono',monospace;color:var(--muted);background:var(--surface2);padding:2px 7px;border-radius:3px;}
+  .jreason{font-size:12px;color:#aaa;line-height:1.6;margin-bottom:10px;}
+  .jlink{display:inline-block;font-size:11px;font-family:'DM Mono',monospace;color:var(--accent2);text-decoration:none;border-bottom:1px solid rgba(126,158,232,.3);padding-bottom:1px;}
+  .jlink:hover{color:#a0bcf0;}
+  .sendsec{margin-top:24px;padding-top:18px;border-top:1px solid var(--border);}
+  .send-lbl{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .erow{display:flex;gap:8px;}
+  .erow input{flex:1;}
+  .sbtn{padding:11px 18px;background:var(--accent2);color:#0e0e0f;border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-weight:500;font-size:13px;cursor:pointer;white-space:nowrap;transition:all .2s;}
+  .sbtn:hover{background:#9ab4f0;}
+  .sbtn:disabled{opacity:.4;cursor:not-allowed;}
+  .sstatus{margin-top:7px;font-size:10px;font-family:'DM Mono',monospace;color:var(--muted);}
 </style>
 </head>
 <body>
@@ -111,66 +110,51 @@
 <header>
   <div class="eyebrow">AI-Powered Job Scout</div>
   <h1>Your <span>Deal Flow</span>,<br>Delivered.</h1>
-  <p class="subtitle">10+ sources · 40+ VC-backed companies · Scored by Claude · Delivered as a digest</p>
+  <p class="subtitle">Live listings from Greenhouse · Lever · Ashby · Workable · YC — scored by Claude</p>
 </header>
 
 <div id="form-section">
 
   <div class="card">
     <div class="card-label">01 — What are you looking for?</div>
-    <textarea id="search-prompt" placeholder="e.g. I'm a Goldman TMT analyst (2 yrs) looking to exit to an operator role at a Series A–C startup — Chief of Staff, Strategy & Ops, or Biz Dev. Interested in fintech, climate, or AI. Open to NYC or SF. Also open to hedge fund or PE associate roles..."></textarea>
+    <textarea id="search-prompt" placeholder="e.g. Finance professional (2yr Goldman TMT analyst) looking to exit to Chief of Staff, Strategy & Ops, or Biz Dev at a Series A–C startup. Interested in fintech, climate, or AI. Open to NYC or SF. Also open to hedge fund or PE associate roles..."></textarea>
   </div>
 
   <div class="card">
     <div class="card-label">02 — Upload Your Resume</div>
     <div class="upload-area" id="upload-area">
       <input type="file" id="resume-file" accept=".pdf,.txt,.doc,.docx"/>
-      <div class="upload-icon">📄</div>
-      <div class="upload-text"><strong>Click to upload</strong> or drag & drop &nbsp;·&nbsp; PDF, TXT, or DOCX</div>
+      <div class="upload-text" style="margin-top:4px"><strong>Click to upload</strong> or drag & drop &nbsp;·&nbsp; PDF, TXT, or DOCX</div>
       <div class="file-name" id="file-name"></div>
     </div>
   </div>
 
   <div class="card">
-    <div class="card-label">03 — Sources to Search</div>
+    <div class="card-label">03 — Sources</div>
 
-    <div class="source-category">
-      <div class="source-category-label">📋 Job Boards & ATS APIs</div>
+    <div class="source-section">
+      <div class="source-section-title">🔴 Live ATS APIs — real job postings fetched directly</div>
       <div class="chips">
-        <div class="source-chip on" data-src="adzuna"><div class="dot"></div>Adzuna <span class="badge">API</span></div>
-        <div class="source-chip on" data-src="wellfound"><div class="dot"></div>Wellfound <span class="badge">startup</span></div>
-        <div class="source-chip on" data-src="yc"><div class="dot"></div>YC Job Board <span class="badge">startup</span></div>
-        <div class="source-chip on" data-src="greenhouse"><div class="dot"></div>Greenhouse <span class="badge">ATS · 27 cos</span></div>
-        <div class="source-chip on" data-src="lever"><div class="dot"></div>Lever <span class="badge">ATS · 10 cos</span></div>
+        <div class="chip on" data-src="greenhouse"><div class="dot"></div>Greenhouse <span class="ct">30 cos</span></div>
+        <div class="chip on" data-src="lever"><div class="dot"></div>Lever <span class="ct">20 cos</span></div>
+        <div class="chip on" data-src="ashby"><div class="dot"></div>Ashby <span class="ct">25 cos</span></div>
+        <div class="chip on" data-src="workable"><div class="dot"></div>Workable <span class="ct">10 cos</span></div>
+        <div class="chip on" data-src="yc"><div class="dot"></div>YC Job Board <span class="ct">live</span></div>
+        <div class="chip on" data-src="adzuna"><div class="dot"></div>Adzuna <span class="ct">API</span></div>
       </div>
+      <div class="source-note">Every posting links directly to the company's own application page. No middlemen.</div>
     </div>
 
-    <div class="source-category">
-      <div class="source-category-label">🏦 VC Firm Career Pages</div>
+    <div class="source-section">
+      <div class="source-section-title">🏦 VC Firms — roles AT the firm itself</div>
       <div class="chips">
-        <div class="source-chip on" data-src="vc-tier1"><div class="dot"></div>Tier 1 VCs <span class="badge">a16z · Sequoia · Accel · KP · Lightspeed</span></div>
-        <div class="source-chip on" data-src="vc-tier2"><div class="dot"></div>Growth VCs <span class="badge">Tiger · Coatue · D1 · GA · Insight</span></div>
-        <div class="source-chip on" data-src="vc-fintech"><div class="dot"></div>Fintech VCs <span class="badge">Ribbit · BCV · QED · FinVC</span></div>
-        <div class="source-chip on" data-src="vc-emerging"><div class="dot"></div>Emerging VCs <span class="badge">Lux · Craft · Variant · Founders Fund · GC</span></div>
+        <div class="chip on" data-src="vc-ashby"><div class="dot"></div>Ashby-hosted VCs <span class="ct">a16z · BVP · Lux · NFX</span></div>
+        <div class="chip on" data-src="vc-greenhouse"><div class="dot"></div>Greenhouse-hosted VCs <span class="ct">GC · Accel · Bessemer</span></div>
+        <div class="chip on" data-src="vc-lever"><div class="dot"></div>Lever-hosted VCs <span class="ct">Sequoia · Founders Fund</span></div>
       </div>
+      <div class="source-note">These pull LIVE roles at the VC firms themselves (investor, platform, talent, ops roles at the fund).</div>
     </div>
 
-    <div class="source-category">
-      <div class="source-category-label">📰 Newsletters & Networks</div>
-      <div class="chips">
-        <div class="source-chip on" data-src="a16z-build"><div class="dot"></div>a16z Build <span class="badge">newsletter</span></div>
-        <div class="source-chip on" data-src="lux-capital"><div class="dot"></div>Lux Capital <span class="badge">network</span></div>
-        <div class="source-chip on" data-src="sequoia-arc"><div class="dot"></div>Sequoia Arc <span class="badge">network</span></div>
-        <div class="source-chip on" data-src="firstround"><div class="dot"></div>First Round <span class="badge">network</span></div>
-        <div class="source-chip on" data-src="compound"><div class="dot"></div>Compound <span class="badge">finance exits</span></div>
-        <div class="source-chip on" data-src="nfx"><div class="dot"></div>NFX Guild <span class="badge">network</span></div>
-        <div class="source-chip on" data-src="hustle-fund"><div class="dot"></div>Hustle Fund <span class="badge">network</span></div>
-      </div>
-    </div>
-
-    <div class="source-note">
-      💡 Greenhouse & Lever pull live postings directly from 37 VC-backed companies · VC pages surface roles not listed anywhere else · Finance exit roles via Compound newsletter · NFX Guild for network-referred startup roles
-    </div>
   </div>
 
   <div class="card">
@@ -187,50 +171,42 @@
     </div>
   </div>
 
-  <div class="progress-wrap" id="progress-wrap">
-    <div class="progress-grid" id="progress-grid"></div>
+  <div class="prog-wrap" id="prog-wrap">
+    <div class="prog-grid" id="prog-grid"></div>
   </div>
-
-  <div class="status-bar" id="status-bar">
-    <div class="spinner"></div>
-    <span id="status-text">Initializing...</span>
-  </div>
-
+  <div class="sbar" id="sbar"><div class="spin"></div><span id="sbar-text">Initializing...</span></div>
   <button class="btn btn-primary" id="run-btn" onclick="runScout()">Run Scout →</button>
 </div>
 
 <div class="results" id="results-section">
-  <div class="newsletter-header">
+  <div class="nl-head">
     <div class="nl-date" id="nl-date"></div>
     <div class="nl-title">Your Job Scout Digest</div>
-    <div class="nl-subtitle" id="nl-subtitle"></div>
+    <div class="nl-sub" id="nl-sub"></div>
   </div>
-  <div class="source-breakdown" id="source-breakdown"></div>
-  <div id="high-section"></div>
-  <div id="low-section"></div>
-  <div class="send-section">
-    <div class="send-label">📬 Send This Digest</div>
-    <div class="email-row">
+  <div class="src-bk" id="src-bk"></div>
+  <div id="high-sec"></div>
+  <div id="low-sec"></div>
+  <div class="sendsec">
+    <div class="send-lbl">📬 Send This Digest</div>
+    <div class="erow">
       <input type="email" id="send-email" placeholder="Send to email..."/>
-      <button class="send-btn" id="send-btn" onclick="sendDigest()">Send via Gmail</button>
+      <button class="sbtn" id="sbtn" onclick="sendDigest()">Send via Gmail</button>
     </div>
-    <div class="send-status" id="send-status"></div>
+    <div class="sstatus" id="sstatus"></div>
   </div>
   <button class="btn btn-secondary" onclick="resetForm()">← Run New Search</button>
 </div>
 
 </div>
-
 <script>
+// ─── STATE ────────────────────────────────────────────────────────────────────
 let resumeText = '';
 let digestHTML = '';
 
-// ── Chip toggles ──────────────────────────────────────────────────────────────
-document.querySelectorAll('.source-chip').forEach(c =>
-  c.addEventListener('click', () => c.classList.toggle('on'))
-);
+// ─── UI SETUP ─────────────────────────────────────────────────────────────────
+document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => c.classList.toggle('on')));
 
-// ── Resume upload ─────────────────────────────────────────────────────────────
 document.getElementById('resume-file').addEventListener('change', async e => {
   const f = e.target.files[0]; if (!f) return;
   document.getElementById('file-name').textContent = '✓ ' + f.name;
@@ -246,364 +222,609 @@ ua.addEventListener('drop', async e => {
   resumeText = (await f.text()).slice(0, 8000);
 });
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
-const setStatus = msg => {
-  document.getElementById('status-bar').classList.add('show');
-  document.getElementById('status-text').textContent = msg;
-};
-const activeSrcs = () => new Set([...document.querySelectorAll('.source-chip.on')].map(c => c.dataset.src));
+// ─── HELPERS ──────────────────────────────────────────────────────────────────
+const setStat = t => { document.getElementById('sbar').classList.add('show'); document.getElementById('sbar-text').textContent = t; };
+const active = () => new Set([...document.querySelectorAll('.chip.on')].map(c => c.dataset.src));
 
-function kw(prompt) {
-  const stop = new Set(['and','the','or','for','with','that','from','are','this','into','have','been','will','they','open','interested','ideally','looking','roles','role','also','about','some','like','want','just','more','very','company','companies','firm','firms']);
+function keywords(prompt) {
+  const stop = new Set(['and','the','or','for','with','that','from','are','this','have','been','will','open','looking','roles','role','firm','firms','company','companies','also','about','like','want','just','more','very','some','they','into']);
   return prompt.split(/\W+/).filter(w => w.length > 3 && !stop.has(w.toLowerCase())).slice(0, 8).join(' ');
 }
-const kwArr = prompt => kw(prompt).toLowerCase().split(' ').filter(Boolean);
+const kwArr = p => keywords(p).toLowerCase().split(' ').filter(Boolean);
 
 function addPill(id, label) {
   const el = document.createElement('div');
-  el.className = 'src-pill'; el.id = 'pill-' + id;
-  el.innerHTML = `<div class="pd"></div>${label}`;
-  document.getElementById('progress-grid').appendChild(el);
+  el.className = 'spill'; el.id = 'pill-' + id;
+  el.innerHTML = `<div class="sd"></div>${label}`;
+  document.getElementById('prog-grid').appendChild(el);
 }
-function setPill(id, state) {
-  const el = document.getElementById('pill-' + id);
-  if (el) el.className = 'src-pill ' + state;
-}
+const setPill = (id, s) => { const el = document.getElementById('pill-' + id); if (el) el.className = 'spill ' + s; };
 
-// ── Greenhouse companies (27) ─────────────────────────────────────────────────
-const GH = [
-  // a16z
-  {s:'anthropic',n:'Anthropic',v:'a16z'},{s:'ramp',n:'Ramp',v:'a16z'},
-  {s:'figma',n:'Figma',v:'a16z'},{s:'airtable',n:'Airtable',v:'a16z'},
-  {s:'brex',n:'Brex',v:'a16z'},{s:'coinbase',n:'Coinbase',v:'a16z'},
-  // Sequoia
-  {s:'stripe',n:'Stripe',v:'Sequoia'},{s:'notion',n:'Notion',v:'Sequoia'},
-  {s:'scale',n:'Scale AI',v:'Sequoia'},{s:'openai',n:'OpenAI',v:'Sequoia'},
-  // Tiger / Growth
-  {s:'rippling',n:'Rippling',v:'Tiger'},{s:'deel',n:'Deel',v:'Tiger'},
-  // Accel
-  {s:'atlassian',n:'Atlassian',v:'Accel'},{s:'docusign',n:'DocuSign',v:'Accel'},
-  // Bessemer
-  {s:'twilio',n:'Twilio',v:'Bessemer'},
-  // GC / Founders Fund
-  {s:'hubspot',n:'HubSpot',v:'GC'},{s:'snap',n:'Snap',v:'GC'},
-  {s:'palantir',n:'Palantir',v:'FF'},{s:'anduril',n:'Anduril',v:'FF'},
+// strip html tags and truncate
+const clean = (s, n=500) => (s||'').replace(/<[^>]+>/g,'').replace(/\s+/g,' ').trim().slice(0,n);
+
+// ─── COMPANY LISTS ────────────────────────────────────────────────────────────
+
+// GREENHOUSE — slug : display name  (30 companies)
+const GH_COS = {
+  // a16z portfolio
+  'anthropic':'Anthropic','ramp':'Ramp','figma':'Figma','brex':'Brex',
+  'coinbase':'Coinbase','robinhood':'Robinhood','airtable':'Airtable',
+  // Sequoia portfolio  
+  'stripe':'Stripe','notion':'Notion','openai':'OpenAI','nubank':'Nubank',
+  // Tiger / growth
+  'rippling':'Rippling','deel':'Deel',
+  // Founders Fund / other
+  'palantir':'Palantir','anduril':'Anduril',
   // Fintech
-  {s:'plaid',n:'Plaid',v:'Kleiner'},{s:'gusto',n:'Gusto',v:'GV'},
-  {s:'robinhood',n:'Robinhood',v:'a16z'},{s:'mercury',n:'Mercury',v:'CRV'},
-  // Other
-  {s:'lattice',n:'Lattice',v:'Thrive'},{s:'linear',n:'Linear',v:'Sequoia'},
-  {s:'benchmarkeducation',n:'Benchmark Edu',v:'Benchmark'},{s:'shopify',n:'Shopify',v:'Bessemer'},
-];
-
-// ── Lever companies (10) ──────────────────────────────────────────────────────
-const LV = [
-  {s:'retool',n:'Retool',v:'Sequoia'},{s:'watershed',n:'Watershed',v:'a16z'},
-  {s:'cohere',n:'Cohere',v:'Tiger'},{s:'navan',n:'Navan',v:'Lightspeed'},
-  {s:'carta',n:'Carta',v:'a16z'},{s:'benchling',n:'Benchling',v:'Benchmark'},
-  {s:'ironclad',n:'Ironclad',v:'Accel'},{s:'persona',n:'Persona',v:'FR'},
-  {s:'sardine',n:'Sardine',v:'a16z'},{s:'brainware',n:'Brainware',v:'GC'},
-];
-
-// ── Curated job data ──────────────────────────────────────────────────────────
-const CURATED = {
-  'vc-tier1': [
-    {title:'Platform Associate',company:'Andreessen Horowitz (a16z)',location:'Menlo Park, CA',description:'Work across the a16z platform helping portfolio companies with talent, GTM, and operations. Quarterly intake. Former operators and consultants preferred.',url:'https://a16z.com/about/jobs/',source:'a16z Career Page',salary:null},
-    {title:'Investment Associate',company:'Sequoia Capital',location:'Menlo Park, CA',description:'Join the investment team to source and evaluate early-stage deals across enterprise and consumer. Finance, engineering, or operating background preferred.',url:'https://www.sequoiacap.com/careers/',source:'Sequoia Career Page',salary:null},
-    {title:'Portfolio Development',company:'Accel Partners',location:'Palo Alto, CA / London',description:'Support Accel portfolio companies on go-to-market, hiring, and strategic initiatives across 200+ portfolio companies.',url:'https://www.accel.com/people',source:'Accel Career Page',salary:null},
-    {title:'Talent Partner',company:'Kleiner Perkins',location:'Menlo Park, CA',description:'Build and run talent programs for KP portfolio companies. Help founders hire their first 50 employees across KP\'s deep tech and consumer portfolio.',url:'https://www.kleinerperkins.com/careers/',source:'Kleiner Perkins Career Page',salary:null},
-    {title:'Associate, Venture',company:'Lightspeed Venture Partners',location:'Menlo Park, CA / NYC',description:'Source and evaluate investments across consumer, enterprise, and fintech. MBA or 2–4 years operating/finance experience preferred.',url:'https://lsvp.com/careers/',source:'Lightspeed Career Page',salary:null},
-    {title:'Platform & Ops',company:'Benchmark Capital',location:'San Francisco, CA',description:'Support Benchmark portfolio companies on operational challenges. Small, high-trust team at one of the most selective early-stage VC firms.',url:'https://www.benchmark.com/',source:'Benchmark Career Page',salary:null},
-    {title:'Investment Associate',company:'Union Square Ventures',location:'New York, NY',description:'USV backs companies that transform how people work, learn, and connect. Associate role covering thesis development and deal sourcing.',url:'https://www.usv.com/',source:'USV Career Page',salary:null},
-    {title:'Principal',company:'Greylock Partners',location:'Menlo Park, CA',description:'Join one of the oldest and most successful enterprise VC firms. Help evaluate and support investments in the next generation of enterprise software.',url:'https://greylock.com/careers/',source:'Greylock Career Page',salary:null},
-  ],
-  'vc-tier2': [
-    {title:'Portfolio Operations',company:'Tiger Global Management',location:'New York, NY',description:'Work directly with Tiger\'s private portfolio on strategic and operational challenges. Former consulting or banking background preferred.',url:'https://www.tigerglobal.com/',source:'Tiger Global Career Page',salary:'$120k–$180k'},
-    {title:'Technology Analyst',company:'Coatue Management',location:'New York, NY',description:'Research and evaluate long/short equity investments in technology. Strong quantitative and analytical background required.',url:'https://www.coatue.com/',source:'Coatue Career Page',salary:'$150k–$200k'},
-    {title:'Investment Analyst',company:'D1 Capital Partners',location:'New York, NY',description:'Support the investment team on due diligence and portfolio monitoring for a leading crossover fund with $20B+ AUM.',url:'https://www.d1capital.com/',source:'D1 Capital Career Page',salary:null},
-    {title:'Associate, Growth Equity',company:'General Atlantic',location:'New York, NY',description:'Evaluate and execute investments in high-growth technology and healthcare companies globally. 2–3 years IB or PE experience required.',url:'https://www.generalatlantic.com/careers/',source:'General Atlantic Career Page',salary:null},
-    {title:'Analyst, ScaleUp',company:'Insight Partners',location:'New York, NY',description:'Help 400+ portfolio companies grow via Insight\'s ScaleUp team. Work on go-to-market, product, and operational challenges.',url:'https://www.insightpartners.com/careers/',source:'Insight Partners Career Page',salary:null},
-    {title:'Growth Equity Associate',company:'TA Associates',location:'Boston, MA',description:'Evaluate and execute growth equity investments across software and financial services. Top-tier finance background required.',url:'https://www.ta.com/careers/',source:'TA Associates Career Page',salary:null},
-  ],
-  'vc-fintech': [
-    {title:'Principal, Fintech Investments',company:'Ribbit Capital',location:'Palo Alto, CA',description:'Source and evaluate fintech investments for the most specialized fintech VC. Portfolio includes Robinhood, Brex, Revolut, and Nubank.',url:'https://ribbitcap.com/',source:'Ribbit Capital Career Page',salary:null},
-    {title:'Investment Associate',company:'Bain Capital Ventures',location:'New York, NY',description:'Evaluate early and growth-stage investments in fintech, SaaS, and infrastructure. Former Bain consultant or IB analyst preferred.',url:'https://baincapitalventures.com/careers/',source:'Bain Capital Ventures Career Page',salary:null},
-    {title:'Platform Associate, Fintech',company:'QED Investors',location:'Alexandria, VA / Remote',description:'Work with QED\'s fintech-only portfolio on strategic and operational challenges. Former fintech operator or banker preferred.',url:'https://qedinvestors.com/careers/',source:'QED Investors Career Page',salary:null},
-    {title:'Fintech Associate',company:'Andreessen Horowitz — Fintech',location:'New York, NY',description:'Dedicated fintech practice at a16z. Evaluate investments in digital banking, payments, insurance, and capital markets.',url:'https://a16z.com/fintech/',source:'a16z Fintech Career Page',salary:null},
-    {title:'Portfolio Analyst',company:'FinVC',location:'San Francisco, CA',description:'Early-stage fintech fund seeking analyst to support deal flow, portfolio monitoring, and LP relations.',url:'https://www.fin.vc/careers',source:'FinVC Career Page',salary:null},
-    {title:'Investment Analyst',company:'Nyca Partners',location:'New York, NY',description:'Fintech-focused VC backed by Goldman and Citi. Evaluate investments in financial infrastructure and embedded finance.',url:'https://nyca.com/',source:'Nyca Partners Career Page',salary:null},
-  ],
-  'vc-emerging': [
-    {title:'Deep Tech Investor',company:'Lux Capital',location:'New York, NY / Menlo Park, CA',description:'Evaluate investments in AI, robotics, energy, and defense at the leading deep-tech VC. Strong scientific or technical background required.',url:'https://luxcapital.com/careers',source:'Lux Capital Career Page',salary:null},
-    {title:'Scout',company:'Craft Ventures',location:'San Francisco, CA',description:'Craft is expanding its scout network. Identify and refer pre-seed and seed deals in enterprise and consumer software.',url:'https://www.craftventures.com/',source:'Craft Ventures Career Page',salary:null},
-    {title:'Crypto Research',company:'Variant Fund',location:'Remote',description:'Crypto-native venture fund seeking researchers to evaluate web3 opportunities. Deep knowledge of crypto protocols required.',url:'https://variant.fund/careers/',source:'Variant Fund Career Page',salary:null},
-    {title:'Research Analyst',company:'Founders Fund',location:'San Francisco, CA',description:'Support the Founders Fund investment team on research and due diligence across deep tech, biotech, and software.',url:'https://foundersfund.com/team/',source:'Founders Fund Career Page',salary:null},
-    {title:'Platform Associate',company:'General Catalyst',location:'New York, NY',description:'Support GC portfolio companies on talent, product, and go-to-market across 100+ companies at all stages.',url:'https://www.generalcatalyst.com/careers',source:'General Catalyst Career Page',salary:null},
-    {title:'Investor',company:'Bessemer Venture Partners',location:'San Francisco, CA / NYC',description:'Join BVP\'s investment team covering cloud, security, and healthcare. Track record includes Shopify, LinkedIn, Twitch.',url:'https://www.bvp.com/careers',source:'Bessemer Career Page',salary:null},
-  ],
-  'a16z-build': [
-    {title:'Business Operations Lead',company:'Ramp (a16z portfolio)',location:'New York, NY (Hybrid)',description:'Own ops infrastructure for a fintech unicorn processing $10B+ annually. Featured in the a16z Build newsletter. Series D, explosive growth.',url:'https://ramp.com/jobs',source:'a16z Build Newsletter',salary:'$150k–$200k'},
-    {title:'Head of Strategy',company:'LangChain (a16z portfolio)',location:'Remote',description:'Drive strategic planning and BD at the leading LLM framework company. Featured in a16z Build — high-growth AI infrastructure play.',url:'https://langchain.com/careers',source:'a16z Build Newsletter',salary:null},
-    {title:'Chief of Staff to CEO',company:'Anyscale (a16z portfolio)',location:'San Francisco, CA',description:'Partner with the CEO on fundraising, board prep, and strategic planning at an AI infrastructure company backed by a16z.',url:'https://anyscale.com/jobs',source:'a16z Build Newsletter',salary:'$160k–$200k'},
-    {title:'Finance & Strategy Associate',company:'Replit (a16z portfolio)',location:'San Francisco, CA / Remote',description:'Build out the finance function and support strategic decisions at a fast-growing developer platform backed by a16z.',url:'https://replit.com/careers',source:'a16z Build Newsletter',salary:'$110k–$150k'},
-    {title:'Investor in Residence',company:'Andreessen Horowitz',location:'Menlo Park, CA',description:'6-month program for former operators who want to explore venture. Evaluate deals alongside the a16z investment team.',url:'https://a16z.com/about/jobs/',source:'a16z Build Newsletter',salary:null},
-    {title:'Head of Growth',company:'Skiff (a16z portfolio)',location:'San Francisco, CA / Remote',description:'Drive user acquisition and growth strategy at a privacy-first productivity platform. Early-stage, high ownership, a16z-backed.',url:'https://skiff.com/careers',source:'a16z Build Newsletter',salary:null},
-  ],
-  'lux-capital': [
-    {title:'Deep Tech Operator',company:'Lux Capital portfolio',location:'New York, NY / SF',description:'Lux surfaces operator roles at portfolio companies in AI, robotics, energy, and defense on a rolling basis.',url:'https://luxcapital.com/careers',source:'Lux Capital Network',salary:null},
-    {title:'Chief of Staff',company:'Shield AI (Lux portfolio)',location:'San Diego, CA',description:'Partner with leadership at a defense AI company backed by Lux Capital. Work on autonomous systems for national security applications.',url:'https://shield.ai/careers/',source:'Lux Capital Network',salary:'$130k–$170k'},
-    {title:'Strategy & Operations',company:'Varda Space (Lux portfolio)',location:'El Segundo, CA',description:'Own cross-functional ops at the first commercial space manufacturing company. Lux-backed, Series A, early team, extremely high ownership.',url:'https://www.varda.com/careers',source:'Lux Capital Network',salary:null},
-    {title:'Head of Finance',company:'Prelim (Lux portfolio)',location:'Remote',description:'Build the finance function from scratch at a fintech infrastructure company backed by Lux Capital.',url:'https://luxcapital.com/careers',source:'Lux Capital Network',salary:'$120k–$160k'},
-  ],
-  'sequoia-arc': [
-    {title:'Head of Finance',company:'Arc (Sequoia-backed)',location:'San Francisco, CA',description:'Build the finance function at a fast-growing B2B fintech. Sequoia-backed, post-product-market fit, scaling rapidly.',url:'https://arc.dev/careers',source:'Sequoia Arc Network',salary:'$140k–$190k'},
-    {title:'Chief of Staff',company:'Harvey (Sequoia-backed)',location:'San Francisco, CA',description:'Partner with the CEO at a leading AI legal tech company. Sequoia-backed, explosive growth trajectory.',url:'https://harvey.ai/careers',source:'Sequoia Arc Network',salary:'$150k–$200k'},
-    {title:'VP Operations',company:'Endgame (Sequoia Arc)',location:'Remote',description:'Build and lead ops at a developer-led growth company in the Sequoia Arc program. Early stage, very high ownership.',url:'https://www.endgame.io/careers',source:'Sequoia Arc Network',salary:null},
-  ],
-  'firstround': [
-    {title:'Founder in Residence',company:'First Round Capital',location:'SF / NYC',description:'First Round\'s FIR program for aspiring founders or operators who want to explore starting a company with First Round support and network.',url:'https://firstround.com/careers/',source:'First Round Network',salary:null},
-    {title:'Head of Revenue',company:'Notion (First Round portfolio)',location:'San Francisco, CA',description:'Lead revenue strategy and operations at one of the fastest-growing productivity tools globally. First Round seed investment.',url:'https://notion.so/careers',source:'First Round Network',salary:'$160k–$220k'},
-    {title:'GM, New Verticals',company:'Faire (First Round portfolio)',location:'San Francisco, CA',description:'Own a new business vertical at a marketplace unicorn connecting indie retailers and brands. Series G.',url:'https://faire.com/careers',source:'First Round Network',salary:'$160k–$210k'},
-    {title:'Head of BD',company:'Ro Health (First Round portfolio)',location:'New York, NY',description:'Drive strategic partnerships at a leading digital health company. First Round-backed, scaling nationally.',url:'https://ro.co/careers',source:'First Round Network',salary:'$140k–$190k'},
-  ],
-  'compound': [
-    {title:'Buyside Associate — Hedge Fund',company:'Undisclosed Multi-Strategy Fund',location:'New York, NY',description:'Compound newsletter: long/short equity associate at a $5B+ AUM fund. 2–4 years sellside or buyside required. Ideal finance exit role.',url:'https://compoundwriting.com/',source:'Compound Newsletter',salary:'$200k–$350k total comp'},
-    {title:'PE Associate (Operating Track)',company:'Undisclosed Growth PE Fund',location:'New York, NY',description:'Compound newsletter: growth PE fund seeking associate with operating instincts. Will work alongside portco management teams on value creation.',url:'https://compoundwriting.com/',source:'Compound Newsletter',salary:'$180k–$280k total comp'},
-    {title:'Head of Finance — Startup',company:'Pre-IPO Fintech (Series C)',location:'New York, NY / Remote',description:'Compound newsletter: fast-growing payments startup seeking finance leader with IB or FP&A background. Board-facing, high equity.',url:'https://compoundwriting.com/',source:'Compound Newsletter',salary:'$160k–$220k + equity'},
-    {title:'VP Strategy',company:'Growth-Stage Fintech',location:'New York, NY',description:'Compound newsletter: Series D fintech seeking a strategy leader from banking or consulting. Will run corp dev, partnerships, and long-range planning.',url:'https://compoundwriting.com/',source:'Compound Newsletter',salary:'$180k–$240k + equity'},
-  ],
-  'nfx': [
-    {title:'Head of Growth',company:'NFX Guild portfolio company',location:'San Francisco, CA / Remote',description:'NFX Guild network role: network-referred opportunity at a marketplace or network-effects business. NFX backs companies where the product IS the network.',url:'https://www.nfx.com/jobs',source:'NFX Guild Network',salary:null},
-    {title:'Founding Business Lead',company:'NFX portfolio — stealth',location:'Remote',description:'NFX is looking for operator-founders to join or co-found companies within their portfolio. Strong network-effects thesis required.',url:'https://www.nfx.com/jobs',source:'NFX Guild Network',salary:null},
-  ],
-  'hustle-fund': [
-    {title:'Chief of Staff',company:'Hustle Fund portfolio',location:'Remote',description:'Hustle Fund backs early-stage startups with extremely capital-efficient founders. CoS role at a Series A portfolio company, referred through the Hustle Fund network.',url:'https://www.hustlefund.vc/jobs',source:'Hustle Fund Network',salary:null},
-    {title:'Operations Lead',company:'Hustle Fund portfolio',location:'Remote / SF',description:'Ops role at a pre-Series A startup backed by Hustle Fund. High ownership, lean team, fast-moving environment.',url:'https://www.hustlefund.vc/jobs',source:'Hustle Fund Network',salary:null},
-  ],
+  'plaid':'Plaid','gusto':'Gusto','mercury':'Mercury',
+  // Enterprise / SaaS
+  'hubspot':'HubSpot','lattice':'Lattice','benchmarkeducation':'Benchmark Education',
+  // Other top startups
+  'scale':'Scale AI','linear':'Linear','superhuman':'Superhuman',
+  'vercel':'Vercel','supabase':'Supabase','modal':'Modal',
+  'perplexity':'Perplexity AI','cursor':'Cursor','harvey':'Harvey',
 };
 
-// ── Fetchers ──────────────────────────────────────────────────────────────────
-async function fetchAdzuna(prompt) {
-  setPill('adzuna','loading');
-  try {
-    const res = await fetch(`https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=a5e51f94&app_key=53bfde2c1a46b94a79a8a3dc5df7c1db&results_per_page=15&what=${encodeURIComponent(kw(prompt))}&content-type=application/json`);
-    const d = await res.json();
-    if (!d.results?.length) throw new Error();
-    setPill('adzuna','done');
-    return d.results.map(j => ({title:j.title,company:j.company?.display_name||'?',location:j.location?.display_name||'Remote',description:(j.description||'').slice(0,500),url:j.redirect_url,source:'Adzuna',salary:j.salary_min?`$${Math.round(j.salary_min/1000)}k–$${Math.round((j.salary_max||j.salary_min*1.3)/1000)}k`:null}));
-  } catch { setPill('adzuna','error'); return [{title:'Chief of Staff',company:'Stripe',location:'San Francisco, CA',description:'Work with exec leadership on strategic cross-functional initiatives.',url:'https://stripe.com/jobs',source:'Adzuna',salary:'$140k–$180k'},{title:'Strategy & Operations',company:'OpenAI',location:'San Francisco, CA',description:'Drive company-wide strategic planning and OKRs at the leading AI lab.',url:'https://openai.com/careers',source:'Adzuna',salary:'$180k–$240k'}]; }
-}
+// LEVER — slug : display name  (20 companies)
+const LV_COS = {
+  'retool':'Retool','watershed':'Watershed','cohere':'Cohere',
+  'navan':'Navan','carta':'Carta','benchling':'Benchling',
+  'ironclad':'Ironclad','sardine':'Sardine','persona':'Persona',
+  'vanta':'Vanta','drata':'Drata','workos':'WorkOS',
+  'clerk':'Clerk','resend':'Resend','posthog':'PostHog',
+  'calcom':'Cal.com','plain':'Plain','liveblocks':'Liveblocks',
+  'ashbyhq':'Ashby','airplane':'Airplane',
+};
 
-async function fetchWellfound(prompt) {
-  setPill('wellfound','loading');
-  try {
-    const res = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://wellfound.com/jobs?q='+encodeURIComponent(kw(prompt)))}`,{signal:AbortSignal.timeout(8000)});
-    const d = await res.json();
-    const m = (d.contents||'').match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/);
-    if (!m) throw new Error();
-    const jobs=[];
-    const walk=o=>{if(!o||typeof o!=='object')return;if(o.title&&o.slug&&o.startup&&jobs.length<8){jobs.push({title:o.title,company:o.startup?.name||'Startup',location:o.locationNames?.join(', ')||'Remote',description:(o.description||'').replace(/<[^>]+>/g,'').slice(0,500),url:`https://wellfound.com/jobs/${o.slug}`,source:'Wellfound',salary:o.compensation||null});}if(jobs.length<8)Object.values(o).forEach(v=>walk(v));};
-    walk(JSON.parse(m[1]));
-    if(!jobs.length)throw new Error();
-    setPill('wellfound','done'); return jobs;
-  } catch {
-    setPill('wellfound','error');
-    return [{title:'Head of Growth',company:'Rippling',location:'SF, CA',description:'Lead growth strategy at a fast-growing HR/fintech unicorn. Founders Fund-backed.',url:'https://wellfound.com/company/rippling/jobs',source:'Wellfound',salary:'$160k–$220k'},{title:'Chief of Staff',company:'Deel',location:'Remote',description:'Partner with exec team on strategic initiatives at a global payroll unicorn.',url:'https://wellfound.com/company/deel/jobs',source:'Wellfound',salary:'$140k–$180k'}];
-  }
-}
+// ASHBY — slug : display name  (25 companies)
+const AB_COS = {
+  // Product companies
+  'linear':'Linear','notion':'Notion-Ashby','loom':'Loom',
+  'figma-ashby':'Figma','mercury':'Mercury',
+  'perplexity-ai':'Perplexity AI','cursor':'Cursor',
+  'mistral':'Mistral AI','harvey':'Harvey',
+  // Fintech
+  'brex-ashby':'Brex','ramp-ashby':'Ramp',
+  'stripe-ashby':'Stripe','plaid-ashby':'Plaid',
+  // AI/ML
+  'anthropic-ashby':'Anthropic','openai-ashby':'OpenAI',
+  'cohere-ashby':'Cohere','together-ai':'Together AI',
+  'modal-ashby':'Modal','replicate':'Replicate',
+  // Other
+  'vercel-ashby':'Vercel','fly-io':'Fly.io',
+  'supabase-ashby':'Supabase','neon':'Neon',
+  'turso':'Turso','planetscale':'PlanetScale',
+};
 
-async function fetchYC(prompt) {
-  setPill('yc','loading');
-  try {
-    const res = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://api.workatastartup.com/companies/search?query='+encodeURIComponent(kw(prompt))+'&limit=12')}`,{signal:AbortSignal.timeout(8000)});
-    const d = await res.json();
-    const p = JSON.parse(d.contents||'{}');
-    const jobs=[];
-    (p.companies||[]).slice(0,10).forEach(co=>{(co.jobs||[]).slice(0,2).forEach(j=>jobs.push({title:j.title,company:co.name,location:j.location||co.location||'Remote',description:`${j.title} at ${co.name}. ${(co.long_description||co.one_liner||'').slice(0,300)}`,url:`https://www.workatastartup.com/jobs/${j.id}`,source:'YC Job Board',salary:j.salary||null}));});
-    if(!jobs.length)throw new Error();
-    setPill('yc','done'); return jobs;
-  } catch {
-    setPill('yc','error');
-    return [{title:'Chief of Staff',company:'Scale AI (YC S16)',location:'SF, CA',description:'Support the CEO on fundraising, board prep, and strategic planning at the leading AI data company.',url:'https://www.workatastartup.com/',source:'YC Job Board',salary:'$150k–$200k'}];
-  }
-}
+// The REAL Ashby slugs (verified format: same as jobs.ashbyhq.com/{slug})
+const AB_REAL = [
+  {s:'linear',n:'Linear'},{s:'notion',n:'Notion'},{s:'loom',n:'Loom'},
+  {s:'mercury',n:'Mercury'},{s:'perplexity',n:'Perplexity AI'},
+  {s:'cursor',n:'Cursor'},{s:'mistral',n:'Mistral AI'},
+  {s:'harvey',n:'Harvey'},{s:'brex',n:'Brex'},
+  {s:'together-ai',n:'Together AI'},{s:'modal',n:'Modal'},
+  {s:'replicate',n:'Replicate'},{s:'vercel',n:'Vercel'},
+  {s:'supabase',n:'Supabase'},{s:'neon',n:'Neon'},
+  {s:'fly-io',n:'Fly.io'},{s:'turso',n:'Turso'},
+  {s:'anthropic',n:'Anthropic'},{s:'openai',n:'OpenAI'},
+  {s:'ramp',n:'Ramp'},{s:'stripe',n:'Stripe'},
+  {s:'watershedclimate',n:'Watershed'},{s:'dbt-labs',n:'dbt Labs'},
+  {s:'retool',n:'Retool'},{s:'rippling',n:'Rippling'},
+];
 
+// WORKABLE slugs (10)
+const WK_COS = [
+  {s:'scale-ai',n:'Scale AI'},{s:'hugging-face',n:'Hugging Face'},
+  {s:'stability-ai',n:'Stability AI'},{s:'cohere-inc',n:'Cohere'},
+  {s:'deepmind',n:'DeepMind'},{s:'midjourney',n:'Midjourney'},
+  {s:'inflection-ai',n:'Inflection AI'},{s:'adept',n:'Adept AI'},
+  {s:'synthesis',n:'Synthesis'},{s:'photoroom',n:'Photoroom'},
+];
+
+// VC FIRM SLUGS (roles AT the VC firm itself)
+const VC_ASHBY = [
+  {s:'a16z',n:'Andreessen Horowitz (a16z)',t:'VC'},
+  {s:'bvp',n:'Bessemer Venture Partners',t:'VC'},
+  {s:'lux-capital',n:'Lux Capital',t:'VC'},
+  {s:'nfx',n:'NFX',t:'VC'},
+  {s:'firstround',n:'First Round Capital',t:'VC'},
+  {s:'generalcatalyst',n:'General Catalyst',t:'VC'},
+  {s:'greylock',n:'Greylock Partners',t:'VC'},
+];
+
+const VC_GH = [
+  {s:'lightspeedvp',n:'Lightspeed Venture Partners',t:'VC'},
+  {s:'accel',n:'Accel Partners',t:'VC'},
+  {s:'insightpartners',n:'Insight Partners',t:'VC'},
+  {s:'generalatlantic',n:'General Atlantic',t:'VC'},
+];
+
+const VC_LV = [
+  {s:'sequoiacap',n:'Sequoia Capital',t:'VC'},
+  {s:'kpcb',n:'Kleiner Perkins',t:'VC'},
+  {s:'foundersfund',n:'Founders Fund',t:'VC'},
+  {s:'benchmark',n:'Benchmark',t:'VC'},
+];
+
+// ─── FETCHERS ─────────────────────────────────────────────────────────────────
+
+// Greenhouse: public API, CORS-enabled
 async function fetchGreenhouse(prompt) {
-  setPill('greenhouse','loading');
-  const keys=kwArr(prompt); const jobs=[];
-  await Promise.all(GH.map(async co=>{
+  setPill('greenhouse','go');
+  const keys = kwArr(prompt);
+  const jobs = [];
+  const sig = AbortSignal.timeout(6000);
+
+  await Promise.all(Object.entries(GH_COS).map(async ([slug, name]) => {
     try {
-      const res=await fetch(`https://boards-api.greenhouse.io/v1/boards/${co.s}/jobs?content=true`,{signal:AbortSignal.timeout(5000)});
-      if(!res.ok)return;
-      const d=await res.json();
-      (d.jobs||[]).filter(j=>keys.some(k=>(j.title+' '+(j.content||'')).toLowerCase().includes(k))).slice(0,2).forEach(j=>jobs.push({title:j.title,company:co.n,location:j.location?.name||'US',description:(j.content||'').replace(/<[^>]+>/g,'').slice(0,500),url:j.absolute_url||`https://boards.greenhouse.io/${co.s}`,source:`Greenhouse (${co.v} portfolio)`,salary:null}));
-    } catch{}
+      const r = await fetch(`https://boards-api.greenhouse.io/v1/boards/${slug}/jobs`, {signal: sig});
+      if (!r.ok) return;
+      const d = await r.json();
+      (d.jobs || [])
+        .filter(j => keys.some(k => j.title.toLowerCase().includes(k)))
+        .slice(0, 3)
+        .forEach(j => jobs.push({
+          title: j.title,
+          company: name,
+          location: j.location?.name || 'See posting',
+          description: clean(j.content, 400) || `${j.title} role at ${name}.`,
+          url: j.absolute_url,
+          source: 'Greenhouse',
+          salary: null,
+          posted: j.updated_at ? new Date(j.updated_at).toLocaleDateString() : null,
+        }));
+    } catch {}
   }));
-  setPill('greenhouse',jobs.length?'done':'error');
-  return jobs.length?jobs:[{title:'Strategy & Operations',company:'Stripe',location:'SF, CA',description:'Own cross-functional strategic initiatives.',url:'https://boards.greenhouse.io/stripe',source:'Greenhouse (Sequoia portfolio)',salary:null}];
+  setPill('greenhouse', jobs.length ? 'ok' : 'no');
+  return jobs;
 }
 
+// Lever: public API, CORS-enabled
 async function fetchLever(prompt) {
-  setPill('lever','loading');
-  const keys=kwArr(prompt); const jobs=[];
-  await Promise.all(LV.map(async co=>{
+  setPill('lever','go');
+  const keys = kwArr(prompt);
+  const jobs = [];
+  const sig = AbortSignal.timeout(6000);
+
+  await Promise.all(Object.entries(LV_COS).map(async ([slug, name]) => {
     try {
-      const res=await fetch(`https://api.lever.co/v0/postings/${co.s}?mode=json`,{signal:AbortSignal.timeout(5000)});
-      if(!res.ok)return;
-      const d=await res.json();
-      (d||[]).filter(j=>keys.some(k=>(j.text+' '+(j.descriptionPlain||'')).toLowerCase().includes(k))).slice(0,2).forEach(j=>jobs.push({title:j.text,company:co.n,location:j.categories?.location||j.categories?.commitment||'US',description:(j.descriptionPlain||'').slice(0,500),url:j.hostedUrl||`https://jobs.lever.co/${co.s}`,source:`Lever (${co.v} portfolio)`,salary:null}));
-    } catch{}
+      const r = await fetch(`https://api.lever.co/v0/postings/${slug}?mode=json`, {signal: sig});
+      if (!r.ok) return;
+      const d = await r.json();
+      (d || [])
+        .filter(j => keys.some(k => (j.text + ' ' + (j.categories?.team||'')).toLowerCase().includes(k)))
+        .slice(0, 3)
+        .forEach(j => jobs.push({
+          title: j.text,
+          company: name,
+          location: j.categories?.location || j.categories?.allLocations?.join(', ') || 'See posting',
+          description: clean(j.descriptionPlain, 400) || `${j.text} at ${name}.`,
+          url: j.hostedUrl,
+          source: 'Lever',
+          salary: j.salaryRange ? `$${j.salaryRange.min}–$${j.salaryRange.max}` : null,
+          posted: j.createdAt ? new Date(j.createdAt).toLocaleDateString() : null,
+        }));
+    } catch {}
   }));
-  setPill('lever',jobs.length?'done':'error');
-  return jobs.length?jobs:[{title:'Head of Operations',company:'Anduril',location:'Costa Mesa, CA',description:'Build operational infrastructure at a fast-growing defense-tech company.',url:'https://jobs.lever.co/anduril',source:'Lever (FF portfolio)',salary:null}];
+  setPill('lever', jobs.length ? 'ok' : 'no');
+  return jobs;
 }
 
-function getCurated(active) {
-  const all=[];
-  Object.keys(CURATED).forEach(cat=>{
-    if(active.has(cat)){
-      CURATED[cat].forEach(j=>all.push(j));
-      setPill(cat,'done');
-    }
-  });
-  return all;
-}
+// Ashby: POST to /posting-api/job-board/{slug}
+async function fetchAshby(prompt) {
+  setPill('ashby','go');
+  const keys = kwArr(prompt);
+  const jobs = [];
+  const sig = AbortSignal.timeout(6000);
 
-// ── Main orchestrator ─────────────────────────────────────────────────────────
-async function runScout() {
-  const prompt=document.getElementById('search-prompt').value.trim();
-  const apiKey=document.getElementById('api-key').value.trim();
-  const email=document.getElementById('user-email').value.trim();
-  if(!prompt){alert('Please describe what you\'re looking for.');return;}
-  if(!apiKey){alert('Please enter your Anthropic API key.');return;}
-
-  const active=activeSrcs();
-  document.getElementById('run-btn').disabled=true;
-
-  // Build pills
-  document.getElementById('progress-grid').innerHTML='';
-  const allPills=[
-    ['adzuna','Adzuna'],['wellfound','Wellfound'],['yc','YC Jobs'],
-    ['greenhouse','Greenhouse'],['lever','Lever'],
-    ['vc-tier1','Tier 1 VCs'],['vc-tier2','Growth VCs'],
-    ['vc-fintech','Fintech VCs'],['vc-emerging','Emerging VCs'],
-    ['a16z-build','a16z Build'],['lux-capital','Lux Capital'],
-    ['sequoia-arc','Sequoia Arc'],['firstround','First Round'],
-    ['compound','Compound'],['nfx','NFX Guild'],['hustle-fund','Hustle Fund'],
-  ];
-  allPills.forEach(([id,label])=>{ if(active.has(id)||['greenhouse','lever'].includes(id)) addPill(id,label); });
-  document.getElementById('progress-wrap').classList.add('show');
-  setStatus('Fetching from '+active.size+' source groups in parallel...');
-
-  const fetches=[];
-  if(active.has('adzuna'))    fetches.push(fetchAdzuna(prompt));
-  if(active.has('wellfound')) fetches.push(fetchWellfound(prompt));
-  if(active.has('yc'))        fetches.push(fetchYC(prompt));
-  if(active.has('greenhouse'))fetches.push(fetchGreenhouse(prompt));
-  if(active.has('lever'))     fetches.push(fetchLever(prompt));
-  fetches.push(Promise.resolve(getCurated(active)));
-
-  const settled=await Promise.allSettled(fetches);
-  let all=[];
-  settled.forEach(r=>{if(r.status==='fulfilled')all=all.concat(r.value||[]);});
-
-  // Dedupe
-  const seen=new Set();
-  all=all.filter(j=>{const k=(j.title+j.company).toLowerCase().replace(/\W/g,'');if(seen.has(k))return false;seen.add(k);return true;});
-
-  if(!all.length){alert('No jobs found. Try broadening your search.');document.getElementById('run-btn').disabled=false;return;}
-
-  setStatus(`Scoring ${all.length} opportunities with Claude...`);
-  const scored=await scoreWithClaude(all,prompt,resumeText,apiKey);
-
-  renderResults(scored,email);
-  document.getElementById('status-bar').classList.remove('show');
-  document.getElementById('progress-wrap').classList.remove('show');
-  document.getElementById('run-btn').disabled=false;
-  document.getElementById('form-section').style.display='none';
-  document.getElementById('results-section').classList.add('show');
-  if(email)document.getElementById('send-email').value=email;
-}
-
-// ── Claude scoring (batched) ──────────────────────────────────────────────────
-async function scoreWithClaude(jobs,userPrompt,resume,apiKey) {
-  const BATCH=20; const allScored=[];
-  for(let i=0;i<jobs.length;i+=BATCH){
-    const batch=jobs.slice(i,i+BATCH);
-    const jobsText=batch.map((j,idx)=>`[${idx}] ${j.title} at ${j.company} (${j.location}) — ${j.source}\n${j.description}`).join('\n\n---\n\n');
-    const msg=`SEARCH CRITERIA:\n${userPrompt}\n\nRESUME:\n${resume||'No resume — score on criteria only.'}\n\nJOBS:\n${jobsText}\n\nReturn JSON array:\n[{"index":0,"score":85,"priority":"high","reason":"2-3 sentences","tags":["Fintech"]}]\nRules: score 0-100, priority "high" if score>=65. Return ONLY JSON.`;
+  await Promise.all(AB_REAL.map(async co => {
     try {
-      const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:3000,system:'Career advisor. Return ONLY valid JSON array. No markdown.',messages:[{role:'user',content:msg}]})});
-      const d=await res.json();
-      const scores=JSON.parse((d.content?.[0]?.text||'[]').replace(/```json|```/g,'').trim());
-      batch.forEach((job,idx)=>{const s=scores.find(x=>x.index===idx)||{score:50,priority:'low',reason:'Unable to score.',tags:[]};allScored.push({...job,...s});});
+      const r = await fetch(`https://api.ashbyhq.com/posting-api/job-board/${co.s}`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({}),
+        signal: sig,
+      });
+      if (!r.ok) return;
+      const d = await r.json();
+      (d.jobPostings || [])
+        .filter(j => j.isListed !== false && keys.some(k =>
+          (j.title + ' ' + (j.departmentName||'')).toLowerCase().includes(k)
+        ))
+        .slice(0, 3)
+        .forEach(j => jobs.push({
+          title: j.title,
+          company: co.n,
+          location: j.locationName || j.location || 'See posting',
+          description: clean(j.descriptionSocial || j.description, 400) || `${j.title} at ${co.n}.`,
+          url: j.jobUrl || `https://jobs.ashbyhq.com/${co.s}/${j.id}`,
+          source: 'Ashby',
+          salary: j.compensationTierSummary || null,
+          posted: j.publishedDate ? new Date(j.publishedDate).toLocaleDateString() : null,
+        }));
+    } catch {}
+  }));
+  setPill('ashby', jobs.length ? 'ok' : 'no');
+  return jobs;
+}
+
+// Workable: POST to search endpoint
+async function fetchWorkable(prompt) {
+  setPill('workable','go');
+  const jobs = [];
+  const sig = AbortSignal.timeout(6000);
+
+  await Promise.all(WK_COS.map(async co => {
+    try {
+      const r = await fetch(`https://apply.workable.com/api/v3/accounts/${co.s}/jobs`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({query: keywords(prompt), location: '', department: ''}),
+        signal: sig,
+      });
+      if (!r.ok) return;
+      const d = await r.json();
+      (d.results || []).slice(0, 3).forEach(j => jobs.push({
+        title: j.title,
+        company: co.n,
+        location: [j.location?.city, j.location?.country].filter(Boolean).join(', ') || 'See posting',
+        description: clean(j.description, 400) || `${j.title} at ${co.n}.`,
+        url: `https://apply.workable.com/${co.s}/j/${j.shortcode}/`,
+        source: 'Workable',
+        salary: j.salary_to ? `$${Math.round(j.salary_from/1000)}k–$${Math.round(j.salary_to/1000)}k` : null,
+        posted: null,
+      }));
+    } catch {}
+  }));
+  setPill('workable', jobs.length ? 'ok' : 'no');
+  return jobs;
+}
+
+// YC Work at a Startup
+async function fetchYC(prompt) {
+  setPill('yc','go');
+  try {
+    const proxy = `https://api.allorigins.win/get?url=${encodeURIComponent('https://api.workatastartup.com/companies/search?query='+encodeURIComponent(keywords(prompt))+'&limit=15')}`;
+    const r = await fetch(proxy, {signal: AbortSignal.timeout(9000)});
+    const d = await r.json();
+    const p = JSON.parse(d.contents || '{}');
+    const jobs = [];
+    (p.companies || []).forEach(co => {
+      (co.jobs || []).slice(0, 2).forEach(j => {
+        jobs.push({
+          title: j.title,
+          company: co.name,
+          location: j.location || co.location || 'Remote',
+          description: clean(co.long_description || co.one_liner, 400),
+          url: `https://www.workatastartup.com/jobs/${j.id}`,
+          source: 'YC Job Board',
+          salary: j.salary || null,
+          posted: null,
+        });
+      });
+    });
+    setPill('yc', jobs.length ? 'ok' : 'no');
+    return jobs;
+  } catch {
+    setPill('yc','no');
+    return [];
+  }
+}
+
+// Adzuna: public API
+async function fetchAdzuna(prompt) {
+  setPill('adzuna','go');
+  try {
+    const r = await fetch(`https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=a5e51f94&app_key=53bfde2c1a46b94a79a8a3dc5df7c1db&results_per_page=12&what=${encodeURIComponent(keywords(prompt))}&content-type=application/json`);
+    if (!r.ok) throw new Error();
+    const d = await r.json();
+    if (!d.results?.length) throw new Error();
+    setPill('adzuna','ok');
+    return d.results.map(j => ({
+      title: j.title,
+      company: j.company?.display_name || 'Unknown',
+      location: j.location?.display_name || 'See posting',
+      description: clean(j.description, 400),
+      url: j.redirect_url,
+      source: 'Adzuna',
+      salary: j.salary_min ? `$${Math.round(j.salary_min/1000)}k–$${Math.round((j.salary_max||j.salary_min*1.3)/1000)}k` : null,
+      posted: j.created ? new Date(j.created).toLocaleDateString() : null,
+    }));
+  } catch {
+    setPill('adzuna','no');
+    return [];
+  }
+}
+
+// VC firms — roles AT the fund itself
+async function fetchVCFirms(active) {
+  const keys = kwArr(document.getElementById('search-prompt').value);
+  const jobs = [];
+
+  if (active.has('vc-ashby')) {
+    setPill('vc-ashby','go');
+    await Promise.all(VC_ASHBY.map(async vc => {
+      try {
+        const r = await fetch(`https://api.ashbyhq.com/posting-api/job-board/${vc.s}`, {
+          method: 'POST', headers: {'Content-Type':'application/json'}, body: '{}',
+          signal: AbortSignal.timeout(5000),
+        });
+        if (!r.ok) return;
+        const d = await r.json();
+        (d.jobPostings || []).slice(0, 4).forEach(j => {
+          // VC firm roles — include all (don't keyword filter, these are rare)
+          jobs.push({
+            title: j.title,
+            company: vc.n,
+            location: j.locationName || 'See posting',
+            description: clean(j.descriptionSocial || j.description, 400) || `${j.title} role at ${vc.n}.`,
+            url: j.jobUrl || `https://jobs.ashbyhq.com/${vc.s}/${j.id}`,
+            source: `${vc.n} (VC firm)`,
+            salary: j.compensationTierSummary || null,
+            posted: j.publishedDate ? new Date(j.publishedDate).toLocaleDateString() : null,
+          });
+        });
+      } catch {}
+    }));
+    setPill('vc-ashby','ok');
+  }
+
+  if (active.has('vc-greenhouse')) {
+    setPill('vc-greenhouse','go');
+    await Promise.all(VC_GH.map(async vc => {
+      try {
+        const r = await fetch(`https://boards-api.greenhouse.io/v1/boards/${vc.s}/jobs`, {signal: AbortSignal.timeout(5000)});
+        if (!r.ok) return;
+        const d = await r.json();
+        (d.jobs || []).slice(0, 4).forEach(j => jobs.push({
+          title: j.title, company: vc.n,
+          location: j.location?.name || 'See posting',
+          description: clean(j.content, 400) || `${j.title} at ${vc.n}.`,
+          url: j.absolute_url,
+          source: `${vc.n} (VC firm)`, salary: null,
+          posted: j.updated_at ? new Date(j.updated_at).toLocaleDateString() : null,
+        }));
+      } catch {}
+    }));
+    setPill('vc-greenhouse','ok');
+  }
+
+  if (active.has('vc-lever')) {
+    setPill('vc-lever','go');
+    await Promise.all(VC_LV.map(async vc => {
+      try {
+        const r = await fetch(`https://api.lever.co/v0/postings/${vc.s}?mode=json`, {signal: AbortSignal.timeout(5000)});
+        if (!r.ok) return;
+        const d = await r.json();
+        (d || []).slice(0, 4).forEach(j => jobs.push({
+          title: j.text, company: vc.n,
+          location: j.categories?.location || 'See posting',
+          description: clean(j.descriptionPlain, 400) || `${j.text} at ${vc.n}.`,
+          url: j.hostedUrl,
+          source: `${vc.n} (VC firm)`, salary: null,
+          posted: j.createdAt ? new Date(j.createdAt).toLocaleDateString() : null,
+        }));
+      } catch {}
+    }));
+    setPill('vc-lever','ok');
+  }
+
+  return jobs;
+}
+
+// ─── MAIN ─────────────────────────────────────────────────────────────────────
+async function runScout() {
+  const prompt = document.getElementById('search-prompt').value.trim();
+  const apiKey = document.getElementById('api-key').value.trim();
+  const email  = document.getElementById('user-email').value.trim();
+  if (!prompt) { alert('Please describe what you\'re looking for.'); return; }
+  if (!apiKey)  { alert('Please enter your Anthropic API key.'); return; }
+
+  const act = active();
+  document.getElementById('run-btn').disabled = true;
+  document.getElementById('prog-grid').innerHTML = '';
+
+  const pillDefs = [
+    ['adzuna','Adzuna'],['yc','YC Jobs'],
+    ['greenhouse','Greenhouse'],['lever','Lever'],
+    ['ashby','Ashby'],['workable','Workable'],
+    ['vc-ashby','VC (Ashby)'],['vc-greenhouse','VC (GH)'],['vc-lever','VC (Lever)'],
+  ];
+  pillDefs.forEach(([id,lbl]) => { if (act.has(id) || ['greenhouse','lever','ashby','workable'].includes(id)) addPill(id,lbl); });
+  document.getElementById('prog-wrap').classList.add('show');
+  setStat('Fetching live job listings from all sources...');
+
+  // Fire all in parallel
+  const promises = [];
+  if (act.has('greenhouse')) promises.push(fetchGreenhouse(prompt));
+  if (act.has('lever'))      promises.push(fetchLever(prompt));
+  if (act.has('ashby'))      promises.push(fetchAshby(prompt));
+  if (act.has('workable'))   promises.push(fetchWorkable(prompt));
+  if (act.has('yc'))         promises.push(fetchYC(prompt));
+  if (act.has('adzuna'))     promises.push(fetchAdzuna(prompt));
+  promises.push(fetchVCFirms(act));
+
+  const settled = await Promise.allSettled(promises);
+  let all = [];
+  settled.forEach(r => { if (r.status === 'fulfilled') all = all.concat(r.value || []); });
+
+  // Deduplicate by title+company
+  const seen = new Set();
+  all = all.filter(j => {
+    const k = (j.title + j.company).toLowerCase().replace(/\W/g,'');
+    if (seen.has(k)) return false;
+    seen.add(k); return true;
+  });
+
+  if (!all.length) {
+    alert('No matching jobs found — try broader keywords in your prompt.');
+    document.getElementById('run-btn').disabled = false;
+    return;
+  }
+
+  setStat(`Scoring ${all.length} live listings with Claude...`);
+  const scored = await scoreWithClaude(all, prompt, resumeText, apiKey);
+  renderResults(scored, email);
+
+  document.getElementById('sbar').classList.remove('show');
+  document.getElementById('prog-wrap').classList.remove('show');
+  document.getElementById('run-btn').disabled = false;
+  document.getElementById('form-section').style.display = 'none';
+  document.getElementById('results-section').classList.add('show');
+  if (email) document.getElementById('send-email').value = email;
+}
+
+// ─── SCORING ──────────────────────────────────────────────────────────────────
+async function scoreWithClaude(jobs, prompt, resume, apiKey) {
+  const BATCH = 20;
+  const out = [];
+  for (let i = 0; i < jobs.length; i += BATCH) {
+    const batch = jobs.slice(i, i + BATCH);
+    const txt = batch.map((j,idx) =>
+      `[${idx}] "${j.title}" at ${j.company}\nLocation: ${j.location}\nSource: ${j.source}${j.salary ? '\nSalary: '+j.salary : ''}\n${j.description}`
+    ).join('\n\n---\n\n');
+
+    const msg = `SEARCH CRITERIA:\n${prompt}\n\nRESUME:\n${resume || 'Not provided — score on criteria match only.'}\n\nJOB LISTINGS (${batch.length}):\n${txt}\n\nReturn a JSON array:\n[{"index":0,"score":85,"priority":"high","reason":"2-3 specific sentences about fit","tags":["Fintech","CoS","Series B"]}]\nRules:\n- score 0-100 (how well the job matches criteria + resume)\n- priority: "high" if score >= 65, else "low"\n- reason: be specific — mention the company, role, and why it fits or doesn't\n- tags: 2-4 short relevant labels\nReturn ONLY the JSON array. No markdown. No preamble.`;
+
+    try {
+      const r = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': apiKey,
+          'anthropic-version': '2023-06-01',
+          'anthropic-dangerous-direct-browser-access': 'true'
+        },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 3000,
+          system: 'You are a career advisor. Score job listings vs a resume and search criteria. Return ONLY a valid JSON array. No markdown, no explanation.',
+          messages: [{ role: 'user', content: msg }]
+        })
+      });
+      const d = await r.json();
+      const raw = (d.content?.[0]?.text || '[]').replace(/```json|```/g,'').trim();
+      const scores = JSON.parse(raw);
+      batch.forEach((job, idx) => {
+        const s = scores.find(x => x.index === idx) || { score: 50, priority: 'low', reason: 'Unable to score.', tags: [] };
+        out.push({ ...job, ...s });
+      });
     } catch {
-      batch.forEach(job=>allScored.push({...job,score:50,priority:'low',reason:'Scoring unavailable.',tags:[]}));
+      batch.forEach(job => out.push({ ...job, score: 50, priority: 'low', reason: 'Scoring unavailable — check API key.', tags: [] }));
     }
   }
-  return allScored;
+  return out;
 }
 
-// ── Render ────────────────────────────────────────────────────────────────────
-function renderResults(jobs,email) {
-  const high=jobs.filter(j=>j.priority==='high').sort((a,b)=>b.score-a.score);
-  const low=jobs.filter(j=>j.priority==='low').sort((a,b)=>b.score-a.score);
-  const today=new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
-  document.getElementById('nl-date').textContent=today.toUpperCase();
-  document.getElementById('nl-subtitle').textContent=`${high.length} high-priority · ${low.length} worth watching · ${jobs.length} total scanned`;
-  const counts={};
-  jobs.forEach(j=>{const s=j.source.split('(')[0].trim();counts[s]=(counts[s]||0)+1;});
-  document.getElementById('source-breakdown').innerHTML=Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(([s,n])=>`<div class="src-count"><strong>${n}</strong> · ${s}</div>`).join('');
-  document.getElementById('high-section').innerHTML=renderSection(high,'high');
-  document.getElementById('low-section').innerHTML=renderSection(low,'low');
-  digestHTML=buildEmailHTML(high,low,today);
-  if(email)document.getElementById('send-email').value=email;
+// ─── RENDER ───────────────────────────────────────────────────────────────────
+function renderResults(jobs, email) {
+  const high = jobs.filter(j => j.priority === 'high').sort((a,b) => b.score - a.score);
+  const low  = jobs.filter(j => j.priority === 'low').sort((a,b) => b.score - a.score);
+  const today = new Date().toLocaleDateString('en-US', {weekday:'long',year:'numeric',month:'long',day:'numeric'});
+
+  document.getElementById('nl-date').textContent = today.toUpperCase();
+  document.getElementById('nl-sub').textContent = `${high.length} high-priority · ${low.length} worth watching · ${jobs.length} live listings scanned`;
+
+  const counts = {};
+  jobs.forEach(j => { const s = j.source.split('(')[0].trim(); counts[s] = (counts[s]||0)+1; });
+  document.getElementById('src-bk').innerHTML = Object.entries(counts)
+    .sort((a,b) => b[1]-a[1])
+    .map(([s,n]) => `<div class="sc"><strong>${n}</strong> · ${s}</div>`).join('');
+
+  document.getElementById('high-sec').innerHTML = renderSection(high, 'hi', 'high');
+  document.getElementById('low-sec').innerHTML  = renderSection(low, 'lo', 'low');
+  digestHTML = buildEmail(high, low, today);
+  if (email) document.getElementById('send-email').value = email;
 }
 
-function renderSection(jobs,tier) {
-  if(!jobs.length)return'';
-  const label=tier==='high'?'🔥 High Priority Fit':'📌 Worth Watching';
-  const cls=tier==='high'?'label-high':'label-low';
-  return`<div class="section-divider"><span class="label ${cls}">${label}</span></div>`+
-    jobs.map(j=>`<div class="job-card ${tier}">
-      <div class="job-top"><div class="job-title">${j.title}</div><div class="score-badge ${tier}">${j.score}/100</div></div>
-      <div class="job-company">${j.company}</div>
-      <div class="job-meta">
-        <span class="meta-tag">📍 ${j.location}</span>
-        <span class="meta-tag">🔗 ${j.source}</span>
-        ${j.salary?`<span class="meta-tag">💰 ${j.salary}</span>`:''}
-        ${(j.tags||[]).map(t=>`<span class="meta-tag">${t}</span>`).join('')}
+function renderSection(jobs, cls, tier) {
+  if (!jobs.length) return '';
+  const label = tier === 'high' ? '🔥 High Priority Fit' : '📌 Worth Watching';
+  const lcls  = tier === 'high' ? 'lbl-h' : 'lbl-l';
+  return `<div class="sdiv"><span class="lbl ${lcls}">${label}</span></div>` +
+    jobs.map(j => `
+    <div class="jc ${cls}">
+      <div class="jtop">
+        <div class="jtitle">${j.title}</div>
+        <div class="sbadge ${cls}">${j.score}/100</div>
       </div>
-      <div class="job-reason">${j.reason}</div>
-      <a href="${j.url}" target="_blank" class="job-link">View Posting →</a>
+      <div class="jco">${j.company}</div>
+      <div class="jmeta">
+        <span class="mtag">📍 ${j.location}</span>
+        <span class="mtag">🔗 ${j.source}</span>
+        ${j.salary ? `<span class="mtag">💰 ${j.salary}</span>` : ''}
+        ${j.posted ? `<span class="mtag">📅 ${j.posted}</span>` : ''}
+        ${(j.tags||[]).map(t => `<span class="mtag">${t}</span>`).join('')}
+      </div>
+      <div class="jreason">${j.reason}</div>
+      <a href="${j.url}" target="_blank" rel="noopener" class="jlink">View Live Posting →</a>
     </div>`).join('');
 }
 
-function buildEmailHTML(high,low,date) {
-  const row=j=>`<div style="border:1px solid #e5e5e5;border-radius:8px;padding:18px;margin-bottom:12px;"><div style="display:flex;justify-content:space-between;margin-bottom:5px;"><strong style="font-size:15px;color:#1a1a1a;">${j.title}</strong><span style="background:#f0f9f4;color:#2d7a4f;border-radius:20px;padding:2px 10px;font-size:11px;">${j.score}/100</span></div><div style="color:#7c4dff;font-size:12px;font-weight:500;margin-bottom:5px;">${j.company}</div><div style="font-size:11px;color:#999;margin-bottom:8px;">📍 ${j.location} · ${j.source}${j.salary?` · 💰 ${j.salary}`:''}</div><div style="font-size:13px;color:#555;line-height:1.6;margin-bottom:10px;">${j.reason}</div><a href="${j.url}" style="font-size:11px;color:#4a90d9;">View Posting →</a></div>`;
-  return`<div style="max-width:600px;margin:0 auto;font-family:Georgia,serif;background:#fafaf8;padding:36px 28px;"><div style="text-align:center;margin-bottom:28px;border-bottom:2px solid #1a1a1a;padding-bottom:22px;"><p style="font-size:10px;letter-spacing:3px;color:#999;margin-bottom:8px;">${date.toUpperCase()}</p><h1 style="font-size:24px;font-weight:700;color:#1a1a1a;margin-bottom:4px;">Your Job Scout Digest</h1><p style="font-size:12px;color:#888;">${high.length} high-priority · ${low.length} worth watching · ${high.length+low.length} total scanned</p></div>${high.length?`<h2 style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#2d7a4f;margin-bottom:12px;">🔥 High Priority</h2>${high.map(row).join('')}`:''}${low.length?`<h2 style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#b07d40;margin-top:24px;margin-bottom:12px;">📌 Worth Watching</h2>${low.map(row).join('')}`:''}<div style="margin-top:32px;padding-top:14px;border-top:1px solid #e5e5e5;text-align:center;font-size:10px;color:#ccc;">Job Scout · Powered by Claude · Adzuna · Wellfound · YC · Greenhouse · Lever · a16z · Lux · Sequoia · First Round · Compound · NFX · Hustle Fund</div></div>`;
+function buildEmail(high, low, date) {
+  const row = j => `<div style="border:1px solid #e5e5e5;border-radius:8px;padding:16px;margin-bottom:10px;">
+    <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+      <strong style="font-size:14px;color:#1a1a1a;">${j.title}</strong>
+      <span style="background:#f0f9f4;color:#2d7a4f;border-radius:20px;padding:1px 8px;font-size:11px;">${j.score}/100</span>
+    </div>
+    <div style="color:#7c4dff;font-size:12px;margin-bottom:4px;">${j.company}</div>
+    <div style="font-size:11px;color:#999;margin-bottom:7px;">📍 ${j.location} · ${j.source}${j.salary?` · 💰 ${j.salary}`:''}</div>
+    <div style="font-size:12px;color:#555;line-height:1.5;margin-bottom:8px;">${j.reason}</div>
+    <a href="${j.url}" style="font-size:11px;color:#4a90d9;">View Live Posting →</a>
+  </div>`;
+
+  return `<div style="max-width:580px;margin:0 auto;font-family:Georgia,serif;background:#fafaf8;padding:32px 24px;">
+    <div style="text-align:center;margin-bottom:24px;border-bottom:2px solid #1a1a1a;padding-bottom:20px;">
+      <p style="font-size:10px;letter-spacing:3px;color:#999;margin-bottom:6px;">${date.toUpperCase()}</p>
+      <h1 style="font-size:22px;font-weight:700;color:#1a1a1a;margin-bottom:3px;">Your Job Scout Digest</h1>
+      <p style="font-size:11px;color:#888;">${high.length} high-priority · ${low.length} worth watching · all links are live postings</p>
+    </div>
+    ${high.length ? `<p style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#2d7a4f;margin-bottom:10px;">🔥 High Priority</p>${high.map(row).join('')}` : ''}
+    ${low.length ? `<p style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#b07d40;margin-top:20px;margin-bottom:10px;">📌 Worth Watching</p>${low.map(row).join('')}` : ''}
+    <div style="margin-top:28px;padding-top:12px;border-top:1px solid #e5e5e5;text-align:center;font-size:10px;color:#ccc;">
+      Job Scout · Powered by Claude · Live from Greenhouse · Lever · Ashby · Workable · YC
+    </div>
+  </div>`;
 }
 
+// ─── SEND ─────────────────────────────────────────────────────────────────────
 async function sendDigest() {
-  const to=document.getElementById('send-email').value.trim();
-  if(!to){alert('Enter an email.');return;}
-  const btn=document.getElementById('send-btn'),st=document.getElementById('send-status');
-  btn.disabled=true;btn.textContent='Sending...';st.textContent='';
+  const to = document.getElementById('send-email').value.trim();
+  if (!to) { alert('Enter an email.'); return; }
+  const btn = document.getElementById('sbtn'), st = document.getElementById('sstatus');
+  btn.disabled = true; btn.textContent = 'Sending...'; st.textContent = '';
   try {
-    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':document.getElementById('api-key').value.trim(),'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:`Send email via Gmail to "${to}" subject "Your Job Scout Digest — ${new Date().toLocaleDateString()}" body:\n\n${digestHTML}`}],mcp_servers:[{type:'url',url:'https://gmail.mcp.claude.com/mcp',name:'gmail'}]})});
-    const d=await res.json();
-    const txt=(d.content||[]).filter(b=>b.type==='text').map(b=>b.text).join(' ').toLowerCase();
-    if(txt.includes('sent')||txt.includes('success')||txt.includes('draft')){st.style.color='var(--high)';st.textContent=`✓ Sent to ${to}`;}
-    else{st.style.color='var(--low)';st.textContent='Check Gmail sent folder.';}
-  } catch{st.style.color='var(--low)';st.textContent='Send failed — check API key.';}
-  btn.disabled=false;btn.textContent='Send via Gmail';
+    const r = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type':'application/json',
+        'x-api-key': document.getElementById('api-key').value.trim(),
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514', max_tokens: 1000,
+        messages: [{ role: 'user', content: `Send email via Gmail to "${to}" with subject "Your Job Scout Digest — ${new Date().toLocaleDateString()}" and this HTML body:\n\n${digestHTML}` }],
+        mcp_servers: [{ type: 'url', url: 'https://gmail.mcp.claude.com/mcp', name: 'gmail' }]
+      })
+    });
+    const d = await r.json();
+    const txt = (d.content||[]).filter(b=>b.type==='text').map(b=>b.text).join(' ').toLowerCase();
+    if (txt.includes('sent')||txt.includes('success')||txt.includes('draft')) {
+      st.style.color = 'var(--high)'; st.textContent = `✓ Digest sent to ${to}`;
+    } else {
+      st.style.color = 'var(--low)'; st.textContent = 'Check your Gmail sent folder.';
+    }
+  } catch { st.style.color = 'var(--low)'; st.textContent = 'Failed — check API key.'; }
+  btn.disabled = false; btn.textContent = 'Send via Gmail';
 }
 
 function resetForm() {
   document.getElementById('results-section').classList.remove('show');
-  document.getElementById('form-section').style.display='block';
-  document.getElementById('progress-wrap').classList.remove('show');
-  document.getElementById('progress-grid').innerHTML='';
+  document.getElementById('form-section').style.display = 'block';
+  document.getElementById('prog-wrap').classList.remove('show');
+  document.getElementById('prog-grid').innerHTML = '';
 }
 </script>
 </body>
